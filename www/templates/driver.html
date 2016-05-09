@@ -74,6 +74,9 @@
     		<lx-date-picker class="lx-date-picker__current-date" model="fechap2" label="Seleccione fecha" locale="es" fixed-label="true" icon="calendar" ></lx-date-picker>
     		</div>
     	
+			<div class="card top-space" ng-show="fechap2">
+    		<p>{{tempcierre}}</p>
+    		</div>
     	
     	
 		<div class="card top-space card__actions" ng-repeat="folio2 in folios2 | filter:{ 'driver': id, 'fecha': fechap2 } :true" >

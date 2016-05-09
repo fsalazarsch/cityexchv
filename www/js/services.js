@@ -69,6 +69,13 @@ angular.module("App")
         //update: { method: 'PUT', url: 'http://www.city-ex.cl/rapi2/api/users/:id', id: "@id"}
     });
 })
+.factory('TempcierreResource', function($resource){
+    return $resource('http://www.city-ex.cl/rapi2/api/tempcierres', {}, {
+        query: {method: 'GET',  isArray: true },
+        get: { method: 'GET',  url: 'http://www.city-ex.cl/rapi2/api/tempcierres/:id', id: "@id"}
+    });
+})
+
 
 .factory("localtime", function($http) {
   return $http.get('http://www.city-ex.cl/chv/site/getlocal');

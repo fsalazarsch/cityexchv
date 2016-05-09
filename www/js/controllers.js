@@ -39,7 +39,7 @@ angular.module("App")
 })
 
 
-.controller("DriverController", function($scope, DriverResource, ServiciostrResource, PatenteResource, ProgramaResource, Folio2Resource, $routeParams, $location, $filter){
+.controller("DriverController", function($scope, DriverResource, ServiciostrResource, PatenteResource, ProgramaResource, Folio2Resource, $routeParams, $location, $filter, TempcierreResource){
 	
 	$scope.title = "Editar Post";
 	$scope.folios2 = Folio2Resource.query();
@@ -66,6 +66,8 @@ angular.module("App")
 	$scope.fechap2 = $filter('date')(new Date(), 'yyyy-MM-dd');
 	$scope.$watch('fechap2', function() {
 		$scope.fechap2 = $filter('date')($scope.fechap2, 'yyyy-MM-dd');
+		$scope.tempcierre = TempcierreResource.get({id: $scope.fechap2});
+	
 	});
 })
 
