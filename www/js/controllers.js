@@ -51,7 +51,7 @@ angular.module("App")
 		$scope.patente = PatenteResource.get({id: $scope.driver.patente});
 		$scope.pat = $scope.patente;
 		
-		if($scope.driver.foto == null){
+		if(($scope.driver.foto == null) || ($scope.driver.foto == "")){
 			$scope.ruta = "imgs/user.png";
 		}
 		else
@@ -66,8 +66,21 @@ angular.module("App")
 	$scope.fechap2 = $filter('date')(new Date(), 'yyyy-MM-dd');
 	$scope.$watch('fechap2', function() {
 		$scope.fechap2 = $filter('date')($scope.fechap2, 'yyyy-MM-dd');
-		$scope.tempcierre = TempcierreResource.get({id: $scope.fechap2});
-	
+		
+		$scope.tempcierre = TempcierreResource.get({id: $scope.fechap2}).$promise.then(function(result){
+		
+		$scope.res = result;
+		$scope.ids_drivers = result.ids_drivers.split(';');
+		$scope.ids_coords = result.ids_coords.split(';');
+		
+			if($scope.ids_drivers.indexOf($routeParams.id) != -1)
+				$scope.alerta = 'true';
+
+			if($scope.ids_coords.indexOf($routeParams.id) != -1)
+				$scope.alerta2 ="true";
+					
+		});
+
 	});
 })
 
@@ -826,7 +839,6 @@ angular.module("App")
 		
 })
 	
-
 .controller("DriverpstController", function($scope, DriverResource, $routeParams, $location, $http, LxNotificationService){
 	
 	$scope.title = "Editar Driver";
@@ -837,6 +849,38 @@ angular.module("App")
 			id: $routeParams.id,  email: $scope.driver.Email, passwd: $scope.driver.passwd 
 		});
 		LxNotificationService.alert('Actualizado', 'Datos de conductor actualizados correctamente',  'OK' , function(answer){
+			$location.path("/driver/"+$routeParams.id);
+		});
+	}
+		
+})
+
+.controller("DriveraddController", function($scope, DriverResource, $routeParams, $location, $http, LxNotificationService){
+	
+	$scope.title = "Editar Driver";
+	$scope.driver = DriverResource.get({id: $routeParams.id});
+	
+	$scope.updateDriver = function(){
+		$.post('http://www.city-ex.cl/chv/site/edituser', {
+			id: $routeParams.id,  email: $scope.driver.Email, passwd: $scope.driver.passwd 
+		});
+		LxNotificationService.alert('Actualizado', 'Se ha agregado un conductor correctamente al cierre',  'OK' , function(answer){
+			$location.path("/driver/"+$routeParams.id);
+		});
+	}
+		
+})
+
+.controller("UseraddController", function($scope, DriverResource, $routeParams, $location, $http, LxNotificationService){
+	
+	$scope.title = "Editar Driver";
+	$scope.driver = DriverResource.get({id: $routeParams.id});
+	
+	$scope.updateDriver = function(){
+		$.post('http://www.city-ex.cl/chv/site/edituser', {
+			id: $routeParams.id,  email: $scope.driver.Email, passwd: $scope.driver.passwd 
+		});
+		LxNotificationService.alert('Actualizado', 'Se ha agregado un usuario correctamente al cierre',  'OK' , function(answer){
 			$location.path("/driver/"+$routeParams.id);
 		});
 	}

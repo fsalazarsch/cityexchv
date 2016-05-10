@@ -40,6 +40,14 @@ angular.module("App",["lumx","ngRoute","ngResource"])
 				controller: 'CierreController',
 				templateUrl: 'templates/cierre.html'
 				})			
+			.when('/user/add', {
+				controller: 'UseraddController',
+				templateUrl: 'templates/user_add.html'
+				})			
+			.when('/driver/add', {
+				controller: 'DriveraddController',
+				templateUrl: 'templates/driver_add.html'
+				})			
 	
 
 	//$compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);

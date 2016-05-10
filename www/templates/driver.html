@@ -73,11 +73,12 @@
 			<div class="card top-space">
     		<lx-date-picker class="lx-date-picker__current-date" model="fechap2" label="Seleccione fecha" locale="es" fixed-label="true" icon="calendar" ></lx-date-picker>
     		</div>
-    	
-			<div class="card top-space" ng-show="fechap2">
-    		<p>{{tempcierre}}</p>
+    		<div class="card top-space">
+				<p ng-show="alerta"><a href="#/user/add" class="btn btn--m btn--green btn--flat" lx-ripple>Agregar usuario</a></p>
+       		</div>
+			<div class="card top-space">
+				<p ng-show="alerta2"><a href="#/driver/add" class="btn btn--m btn--green btn--flat" lx-ripple>Agregar conductor</a></p>
     		</div>
-    	
     	
 		<div class="card top-space card__actions" ng-repeat="folio2 in folios2 | filter:{ 'driver': id, 'fecha': fechap2 } :true" >
 			<a href="#/cierre/{{folio2.id_servicio}}">
