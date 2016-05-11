@@ -855,34 +855,40 @@ angular.module("App")
 		
 })
 
-.controller("DriveraddController", function($scope, DriverResource, $routeParams, $location, $http, LxNotificationService){
+.controller("DriveraddController", function($scope, $resource, $routeParams, DriverResource, $resource, $location, LxNotificationService, tablas, localtime){
+		$scope.folio = {
+		contacto: undefined,
+		};
 	
-	$scope.title = "Editar Driver";
-	$scope.driver = DriverResource.get({id: $routeParams.id});
+	$scope.drivers = DriverResource.query();
+	$scope.title= "Login";
 	
-	$scope.updateDriver = function(){
-		$.post('http://www.city-ex.cl/chv/site/edituser', {
-			id: $routeParams.id,  email: $scope.driver.Email, passwd: $scope.driver.passwd 
+		$scope.drivers=[];
+		$scope.selects = { driver: undefined};
+			x = DriverResource.query(function (response){
+			angular.forEach(response, function (item){
+					$scope.users.push(item);
+			});
 		});
-		LxNotificationService.alert('Actualizado', 'Se ha agregado un conductor correctamente al cierre',  'OK' , function(answer){
-			$location.path("/driver/"+$routeParams.id);
-		});
-	}
-		
+
+		$scope.update = function(){
+			$scope.folio.contacto= parseInt($scope.drivers[0].id);
+		}
+
 })
+
 
 .controller("UseraddController", function($scope, DriverResource, $routeParams, $location, $http, LxNotificationService){
 	
-	$scope.title = "Editar Driver";
-	$scope.driver = DriverResource.get({id: $routeParams.id});
+	$scope.drivers = DriverResource.query();
+	$scope.title = "Agregar Conductor al cierre";
 	
-	$scope.updateDriver = function(){
-		$.post('http://www.city-ex.cl/chv/site/edituser', {
-			id: $routeParams.id,  email: $scope.driver.Email, passwd: $scope.driver.passwd 
-		});
-		LxNotificationService.alert('Actualizado', 'Se ha agregado un usuario correctamente al cierre',  'OK' , function(answer){
-			$location.path("/driver/"+$routeParams.id);
-		});
-	}
-		
+		$scope.selects = { driver: undefined};
+	
+		$scope.verificar = function(){
+			if($scope.selects.driver)
+			alert($scope.selects.driver.id_driver);
+		}
+
+	
 });
