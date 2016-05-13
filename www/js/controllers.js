@@ -855,7 +855,7 @@ angular.module("App")
 		
 })
 
-.controller("UseraddController", function($scope, $resource, $routeParams, ProgramaResource, $resource, $location, LxNotificationService, tablas, localtime){
+.controller("UseraddController", function($scope, $resource, $routeParams, ProgramaResource, $resource, $location, $filter, LxNotificationService, tablas, localtime){
 	
 	$scope.centrocostos = ProgramaResource.query();
 	$scope.title= "Agregar Usuario al cierre";
@@ -864,30 +864,50 @@ angular.module("App")
 	
 	$scope.selects = { centrocosto: undefined};
 
+			$scope.fechap3 = $filter('date')(new Date(), 'yyyy-MM-dd');
+			$scope.$watch('fechap3', function() {
+				$scope.fechap3 = $filter('date')($scope.fechap3, 'yyyy-MM-dd');
+			});
+
+
 		$scope.useradd = function(){
-			alert($scope.selects.centrocosto.id_programa);
+			//alert($scope.user.nombre+' - '+$scope.selects.centrocosto.id_programa);
+
+				$.post('http://www.city-ex.cl/chv/site/adduser', {
+					nombre: $scope.user.nombre, fecha: $scope.fechap3, cc: $scope.selects.centrocosto.id_programa
+				});
+				LxNotificationService.alert('Actualizado', 'Datos de usuario actualizados correctamente',  'OK' , function(answer){
+					$location.path("/driver/"+$routeParams.id);
+				});
+
 		}
 
 })
 
 
-.controller("DriveraddController", function($scope, DriverResource, $routeParams, $location, $http, LxNotificationService){
+.controller("DriveraddController", function($scope, DriverResource, $routeParams, $location, $http, $filter, LxNotificationService){
 	
 	$scope.drivers = DriverResource.query();
 	$scope.title = "Agregar Conductor al cierre";
 	
 		$scope.selects = { driver: undefined};
-	
+		
+			$scope.fechap3 = $filter('date')(new Date(), 'yyyy-MM-dd');
+			$scope.$watch('fechap3', function() {
+				$scope.fechap3 = $filter('date')($scope.fechap3, 'yyyy-MM-dd');
+			});
+		
 		$scope.verificar = function(){
 			if($scope.selects.driver){
-				//$.post('http://www.city-ex.cl/chv/site/adddriver', {
-				//	id: $scope.selects.driver.id_driver,  email: $scope.driver.Email 
-				//});
-				//LxNotificationService.alert('Actualizado', 'Datos de conductor actualizados correctamente',  'OK' , function(answer){
-				//	$location.path("/driver/"+$routeParams.id);
-				//});
+				
+				$.post('http://www.city-ex.cl/chv/site/adddriver', {
+					id: $scope.selects.driver.id_driver, fecha: $scope.fechap3
+				});
+				LxNotificationService.alert('Actualizado', 'Datos de conductor actualizados correctamente',  'OK' , function(answer){
+					$location.path("/driver/"+$routeParams.id);
+				});
 				}
-			alert($scope.selects.driver.id_driver);
+			
 		}
 
 	
