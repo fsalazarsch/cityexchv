@@ -40,11 +40,11 @@ angular.module("App",["lumx","ngRoute","ngResource"])
 				controller: 'CierreController',
 				templateUrl: 'templates/cierre.html'
 				})			
-			.when('/user/add', {
+			.when('/user/add/:id', {
 				controller: 'UseraddController',
 				templateUrl: 'templates/user_add.html'
 				})			
-			.when('/driver/add', {
+			.when('/driver/add/:id', {
 				controller: 'DriveraddController',
 				templateUrl: 'templates/driver_add.html'
 				})			

@@ -855,30 +855,23 @@ angular.module("App")
 		
 })
 
-.controller("DriveraddController", function($scope, $resource, $routeParams, DriverResource, $resource, $location, LxNotificationService, tablas, localtime){
-		$scope.folio = {
-		contacto: undefined,
-		};
+.controller("UseraddController", function($scope, $resource, $routeParams, ProgramaResource, $resource, $location, LxNotificationService, tablas, localtime){
 	
-	$scope.drivers = DriverResource.query();
-	$scope.title= "Login";
+	$scope.centrocostos = ProgramaResource.query();
+	$scope.title= "Agregar Usuario al cierre";
 	
-		$scope.drivers=[];
-		$scope.selects = { driver: undefined};
-			x = DriverResource.query(function (response){
-			angular.forEach(response, function (item){
-					$scope.users.push(item);
-			});
-		});
+	
+	
+	$scope.selects = { centrocosto: undefined};
 
-		$scope.update = function(){
-			$scope.folio.contacto= parseInt($scope.drivers[0].id);
+		$scope.useradd = function(){
+			alert($scope.selects.centrocosto.id_programa);
 		}
 
 })
 
 
-.controller("UseraddController", function($scope, DriverResource, $routeParams, $location, $http, LxNotificationService){
+.controller("DriveraddController", function($scope, DriverResource, $routeParams, $location, $http, LxNotificationService){
 	
 	$scope.drivers = DriverResource.query();
 	$scope.title = "Agregar Conductor al cierre";
@@ -886,7 +879,14 @@ angular.module("App")
 		$scope.selects = { driver: undefined};
 	
 		$scope.verificar = function(){
-			if($scope.selects.driver)
+			if($scope.selects.driver){
+				//$.post('http://www.city-ex.cl/chv/site/adddriver', {
+				//	id: $scope.selects.driver.id_driver,  email: $scope.driver.Email 
+				//});
+				//LxNotificationService.alert('Actualizado', 'Datos de conductor actualizados correctamente',  'OK' , function(answer){
+				//	$location.path("/driver/"+$routeParams.id);
+				//});
+				}
 			alert($scope.selects.driver.id_driver);
 		}
 
