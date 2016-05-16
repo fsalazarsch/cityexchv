@@ -15,7 +15,7 @@ for(i=0;i<10;i++){
 	innhtml +='</lx-text-field></td><td>';
 	//innhtml +='<input type="text" ng-model="folio.pasajero['+i+']">';
 	
-	innhtml +=' <lx-select style="margin-top: 0px;" placeholder="Seleccione nombre" choices="idusers" ng-model="folio.pasajero['+i+']" id="{{cont}}" min-length="0" ng-change= "update('+i+')" model-to-selection="textToObjectMethod(data, callback)">';
+	innhtml +=' <lx-select style="margin-top: 0px;" placeholder="Seleccione nombre" choices="idusers" ng-model="folio.pasajero['+i+']" id="{{cont}}" min-length="0" ng-change= "update('+i+')" model-to-selection="textToObjectMethod(data, callback)" allow-clear="true">';
     innhtml +='        <lx-select-selected>';
     innhtml +='            {{ $selected.username }}';
     innhtml +='       </lx-select-selected>';
