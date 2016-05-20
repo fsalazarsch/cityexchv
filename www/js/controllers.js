@@ -677,6 +677,8 @@ angular.module("App")
 			$scope.driver = DriverResource.get({id: result.driver});
 			$scope.iddriver = result.driver;
 			
+			$scope.rutatab2= "/user/add/"+$scope.iddriver+"/"+$routeParams.id;
+			
 			tablas.insertar('tbl_folio2', 'id_servicio, hr_inicio, km_inicio, lugar_salida, hr_termino, km_termino, pasajero, calidad, desc_calidad, coord_x, coord_y, tiempo_real, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"","","", ""');
 			tablas.insertar('tbl_cierre', 'id_servicio, peaje, estacionamiento, tag, km_add, observacion, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"","" ,""');
 			//la insercion de los kms va a ser backend
@@ -686,6 +688,10 @@ angular.module("App")
 			
 			$scope.users=[];
 			$scope.idsfolio = [];
+			
+			$scope.iradduser = function (){
+				$location.path($scope.rutatab2);
+				}
 			
 			y = CierreResource.query(function (response){
 				angular.forEach(response, function (item){
@@ -860,8 +866,6 @@ angular.module("App")
 	$scope.centrocostos = ProgramaResource.query();
 	$scope.title= "Agregar Usuario al cierre";
 	
-	
-	
 	$scope.selects = { centrocosto: undefined};
 
 			$scope.fechap3 = $filter('date')(new Date(), 'yyyy-MM-dd');
@@ -872,10 +876,16 @@ angular.module("App")
 
 		$scope.useradd = function(){
 			//alert($scope.user.nombre+' - '+$scope.selects.centrocosto.id_programa);
-
 				$.post('http://www.city-ex.cl/chv/site/adduser', {
 					nombre: $scope.user.nombre, fecha: $scope.fechap3, cc: $scope.selects.centrocosto.id_programa
 				});
+				if($routeParams.idcierre){
+				//alert($routeParams.idcierre);
+				LxNotificationService.alert('Actualizado', 'Datos de usuario actualizados correctamente',  'OK' , function(answer){
+					$location.path("/cierre/"+$routeParams.idcierre);
+				});
+				}
+				else
 				LxNotificationService.alert('Actualizado', 'Datos de usuario actualizados correctamente',  'OK' , function(answer){
 					$location.path("/driver/"+$routeParams.id);
 				});

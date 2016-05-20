@@ -44,6 +44,11 @@ angular.module("App",["lumx","ngRoute","ngResource"])
 				controller: 'UseraddController',
 				templateUrl: 'templates/user_add.html'
 				})			
+
+			.when('/user/add/:id/:idcierre', {
+				controller: 'UseraddController',
+				templateUrl: 'templates/user_add.html'
+				})			
 			.when('/driver/add/:id', {
 				controller: 'DriveraddController',
 				templateUrl: 'templates/driver_add.html'
