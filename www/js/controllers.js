@@ -39,10 +39,11 @@ angular.module("App")
 })
 
 
-.controller("DriverController", function($scope, DriverResource, ServiciostrResource, PatenteResource, ProgramaResource, Folio2Resource, $routeParams, $location, $filter, TempcierreResource){
+.controller("DriverController", function($scope, ServiciobusResource, DriverResource, ServiciostrResource, PatenteResource, ProgramaResource, Folio2Resource, $routeParams, $location, $filter, TempcierreResource){
 	
 	$scope.title = "Editar Post";
 	$scope.folios2 = Folio2Resource.query();
+	$scope.folios3 = ServiciobusResource.query();
 	
 	$scope.driver = DriverResource.get({id: $routeParams.id});
 	$scope.id = $routeParams.id;
@@ -82,6 +83,12 @@ angular.module("App")
 		});
 
 	});
+	
+	$scope.fechap4 = $filter('date')(new Date(), 'yyyy-MM-dd');
+	$scope.$watch('fechap4', function() {
+		$scope.fechap4 = $filter('date')($scope.fechap4, 'yyyy-MM-dd');
+	});
+
 })
 
 .controller("ServicioController", function($scope, DriverResource, ServiciosResource, FolioResource, ProgramaResource, UserResource, $routeParams, $location, $filter, LxNotificationService, tablas, $http){
@@ -918,6 +925,61 @@ angular.module("App")
 				});
 				}
 			
+		}
+
+	
+})
+
+.controller("ServiciobusController", function($scope, $routeParams, $location, $http, $filter, LxNotificationService){
+	$scope.serv = {
+		};
+			
+	var options = {
+		enableHighAccuracy: true,
+		timeout: 20000,
+		maximumAge: 18000000
+		};
+
+	function success(pos){
+		var crd = pos.coords;
+		$scope.serv.coord_x = crd.latitude;
+		$scope.serv.coord_y = crd.longitude;
+	};
+
+	function error(err) {
+		console.warn('ERROR(' + err.code + '): ' + err.message);
+		LxNotificationService.alert('Error', 'No es posible obtener su ubicacion, verifique su configuracion GPS',  'OK' , function(answer)
+		{
+			if(answer == true){
+				history.back();
+			}
+		})
+	};
+
+	navigator.geolocation.getCurrentPosition(success, error, options);
+	//fin geolocalizacion
+	
+	
+	$scope.title = "Servicio de bus";
+	
+			$http.get("http://www.city-ex.cl/chv/site/getlocal").then(function(response) {
+			$scope.serv.local = response.data;
+				});
+		
+			
+		
+		$scope.guardarservbus = function(){
+		//	alert($scope.serv.local);
+				
+				$.post('http://www.city-ex.cl/chv/site/addbus', {
+					id: $routeParams.id, hora_ini: $scope.serv.hora_ini, km_inicio: $scope.serv.km_inicio, lugar_salida: $scope.serv.lugar_salida, hora_ter: $scope.serv.hora_ter, km_termino: $scope.serv.km_termino, lugar_llegada: $scope.serv.lugar_llegada, npas: $scope.serv.npas, coord_x: $scope.serv.coord_x, coord_y: $scope.serv.coord_y, local: $scope.serv.local  
+				});
+				
+				LxNotificationService.confirm('Guardado', 'Ha guardado la informacion correctamente, puede continuar en la bitacora o salir.', { cancel:'Continuar', ok:'Salir' }, function(answer){
+				if(answer == true){
+					history.back();
+				}
+		});			
 		}
 
 	

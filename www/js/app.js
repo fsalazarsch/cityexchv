@@ -53,6 +53,10 @@ angular.module("App",["lumx","ngRoute","ngResource"])
 				controller: 'DriveraddController',
 				templateUrl: 'templates/driver_add.html'
 				})			
+			.when('/serviciobus/:id', {
+				controller: 'ServiciobusController',
+				templateUrl: 'templates/serviciobus.html'
+				})			
 	
 
 	//$compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);

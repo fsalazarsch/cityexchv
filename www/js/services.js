@@ -75,6 +75,14 @@ angular.module("App")
         get: { method: 'GET',  url: 'http://www.city-ex.cl/rapi2/api/tempcierres/:id', id: "@id"}
     });
 })
+.factory('ServiciobusResource', function($resource){
+    return $resource('http://www.city-ex.cl/rapi2/api/serviciobus', {}, {
+        query: {method: 'GET',  isArray: true },
+        get: { method: 'GET',  url: 'http://www.city-ex.cl/rapi2/api/serviciobus/:id', id: "@id"},
+        //save: {method: 'POST', url: 'http://www.city-ex.cl/rapi2/api/programas'},
+        //update: { method: 'PUT', url: 'http://www.city-ex.cl/rapi2/api/programas/:id', id: "@id"}
+    });
+})
 
 
 .factory("localtime", function($http) {
