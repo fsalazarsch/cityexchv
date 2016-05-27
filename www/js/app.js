@@ -5,13 +5,19 @@ var app = {
     },
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, true);
+        document.addEventListener("backbutton", onBackKeyDown, false);
     },
-
     onDeviceReady: function() {
 		angular.element(document).ready(function() {
             angular.bootstrap(document);
         });
     },
+   
+    onBackKeyDown: function() {
+		angular.element(document).ready(function() {
+            alert('Funcion deshabilitada');
+        });
+
 };
 
 angular.module("App",["lumx","ngRoute","ngResource"])
