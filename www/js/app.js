@@ -18,8 +18,8 @@ var app = {
             alert('Funcion deshabilitada');
         });
 
-};
-
+	},
+}
 angular.module("App",["lumx","ngRoute","ngResource"])
 
 
