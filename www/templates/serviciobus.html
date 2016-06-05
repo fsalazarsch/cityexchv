@@ -7,12 +7,10 @@
 			<div flex-container ="row">
 				<div flex-item>
 					
-					<lx-text-field  fixed-label="true" icon="clock">
-						<input type ="time" >
-						
-						<lx-time-picker model="serv.hora_ini"></lx-time-picker>
+					<lx-text-field fixed-label="true" icon="clock">
+						<input type ="time" mg-model="serv.hora_ini">
 						</lx-text-field>
-					
+						
 					<lx-text-field label="Km inicio" fixed-label="true" icon="car">
 						<input type ="number"  ng-model="serv.km_inicio">
 						</lx-text-field>
@@ -21,9 +19,9 @@
 						<input type ="text" ng-model="serv.lugar_salida">
 						</lx-text-field>
 
-					<lx-text-field label="Hora termino Serv" fixed-label="true" icon="clock">
-						<lx-time-picker model="serv.hora_ter"></lx-time-picker>
-						</lx-text-field>
+					<lx-text-field fixed-label="true" icon="clock">
+						<input type ="time" mg-model="serv.hora_ter">
+					</lx-text-field>
 					
 					<lx-text-field label="Km termino" fixed-label="true" icon="car">
 						<input type ="number"  ng-model="serv.km_termino">
