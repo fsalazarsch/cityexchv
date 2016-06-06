@@ -71,15 +71,16 @@ angular.module("App")
 		$scope.tempcierre = TempcierreResource.get({id: $scope.fechap2}).$promise.then(function(result){
 		
 		$scope.res = result;
-		$scope.ids_drivers = result.ids_drivers.split(';');
-		$scope.ids_coords = result.ids_coords.split(';');
-		
+		if($scope.ids_drivers){
+			$scope.ids_drivers = result.ids_drivers.split(';');
 			if($scope.ids_drivers.indexOf($routeParams.id) != -1)
 				$scope.alerta = 'true';
-
+		}
+		if($scope.ids_coords){
+			$scope.ids_coords = result.ids_coords.split(';');
 			if($scope.ids_coords.indexOf($routeParams.id) != -1)
 				$scope.alerta2 ="true";
-					
+		}
 		});
 
 	});
@@ -308,6 +309,10 @@ angular.module("App")
 			$scope.folio.contacto= parseInt($scope.users[0].id);
 		}
 	});
+	
+	//$scope.$watch('hr_inicio[0]', function() {
+	//$scope.folio.hr_inicio = $filter('date')($scope.hr_inicio, 'HH:mm:ss');
+	//});
 	
 	tablas.insertar('tbl_folio', 'id_servicio, hr_inicio, km_inicio, lugar_salida, hr_termino, km_termino, lugar_llegada, calidad, desc_calidad, coord_x, coord_y, tiempo_real, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"","","", ""');
 	tablas.insertar('tbl_servicio', 'id_servicio, peaje, estacionamiento, tag, km_add, observacion, contacto, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"", "", ""');
