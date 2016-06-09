@@ -935,7 +935,7 @@ angular.module("App")
 	
 })
 
-.controller("ServiciobusController", function($scope, $routeParams, $location, $http, $filter, LxNotificationService){
+.controller("ServiciobusController", function($scope, $resource, $routeParams, $location, $http, $filter, LxNotificationService){
 	$scope.serv = {
 		};
 			
