@@ -981,12 +981,12 @@ angular.module("App")
 				});
 				
 				
-				LxNotificationService.confirm('Guardado', 'Ha guardado la informacion correctamente, puede continuar en la bitacora o salir.', { cancel:'Continuar', ok:'Salir' }, function(answer){
+				LxNotificationService.alert('Guardado', 'Datos guardados satisfactoriamente',  'OK' , function(answer){
 				if(answer == true){
 				history.back();
 				}
-				});
-					
+				})
+									
 		};
 
 	
