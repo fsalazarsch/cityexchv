@@ -989,7 +989,18 @@ angular.module("App")
 		else
 			$scope.serv.hora_ini = $scope.serv.hora_inihrs+':'+$scope.serv.hora_inimins;
 		
-		alert($scope.serv.hora_ini);
+		
+		if(($scope.serv.hora_terhrs != '') && ($scope.serv.hora_termins == ''))
+		$scope.serv.hora_termins = 00;
+	
+		if(($scope.serv.hora_termins != '') && ($scope.serv.hora_terhrs == ''))
+		$scope.serv.hora_terhrs = 0;
+		
+		if($scope.serv.hora_termins < 10)
+			$scope.serv.hora_ter = $scope.serv.hora_terhrs+':0'+$scope.serv.hora_termins;
+		else
+			$scope.serv.hora_ter = $scope.serv.hora_initer+':'+$scope.serv.hora_termins;
+		
 				
 				$.post('http://www.city-ex.cl/chv/site/addbus', {
 					id: $routeParams.id, hora_ini: $scope.serv.hora_ini, km_inicio: $scope.serv.km_inicio, lugar_salida: $scope.serv.lugar_salida, hora_ter: $scope.serv.hora_ter, km_termino: $scope.serv.km_termino, lugar_llegada: $scope.serv.lugar_llegada, npas: $scope.serv.npas, coord_x: $scope.serv.coord_x, coord_y: $scope.serv.coord_y  
