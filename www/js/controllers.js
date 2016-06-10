@@ -966,18 +966,12 @@ angular.module("App")
 	
 	
 	$scope.title = "Servicio de bus";
-	
-			$http.get("http://www.city-ex.cl/chv/site/getlocal").then(function(response) {
-			$scope.serv.local = response.data;
-				});
-		
-			
 		
 		$scope.guardarservbus = function(){
 		//	alert($scope.serv.local);
 				
 				$.post('http://www.city-ex.cl/chv/site/addbus', {
-					id: $routeParams.id, hora_ini: $scope.serv.hora_ini, km_inicio: $scope.serv.km_inicio, lugar_salida: $scope.serv.lugar_salida, hora_ter: $scope.serv.hora_ter, km_termino: $scope.serv.km_termino, lugar_llegada: $scope.serv.lugar_llegada, npas: $scope.serv.npas, coord_x: $scope.serv.coord_x, coord_y: $scope.serv.coord_y, local: $scope.serv.local  
+					id: $routeParams.id, hora_ini: $scope.serv.hora_ini, km_inicio: $scope.serv.km_inicio, lugar_salida: $scope.serv.lugar_salida, hora_ter: $scope.serv.hora_ter, km_termino: $scope.serv.km_termino, lugar_llegada: $scope.serv.lugar_llegada, npas: $scope.serv.npas, coord_x: $scope.serv.coord_x, coord_y: $scope.serv.coord_y  
 				});
 				
 				
