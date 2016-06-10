@@ -950,6 +950,7 @@ angular.module("App")
 		$scope.serv.coord_x = crd.latitude;
 		$scope.serv.coord_y = crd.longitude;
 	};
+	
 
 	function error(err) {
 		console.warn('ERROR(' + err.code + '): ' + err.message);
@@ -967,19 +968,39 @@ angular.module("App")
 	
 	$scope.title = "Servicio de bus";
 		
+	if(($scope.serv.hora_inihrs != '') && ($scope.serv.hora_inimins == ''))
+		$scope.serv.hora_inimins = 00;
+	
+	if(($scope.serv.hora_inimins != '') && ($scope.serv.hora_inihrs == ''))
+		$scope.serv.hora_inihrs = 0;
+	
+		
+		
 		$scope.guardarservbus = function(){
-		//	alert($scope.serv.local);
+
+		if(($scope.serv.hora_inihrs != '') && ($scope.serv.hora_inimins == ''))
+		$scope.serv.hora_inimins = 00;
+	
+		if(($scope.serv.hora_inimins != '') && ($scope.serv.hora_inihrs == ''))
+		$scope.serv.hora_inihrs = 0;
+		
+		if($scope.serv.hora_inimins < 10)
+			$scope.serv.hora_ini = $scope.serv.hora_inihrs+':0'+$scope.serv.hora_inimins;
+		else
+			$scope.serv.hora_ini = $scope.serv.hora_inihrs+':'+$scope.serv.hora_inimins;
+		
+		alert($scope.serv.hora_ini);
 				
 				$.post('http://www.city-ex.cl/chv/site/addbus', {
 					id: $routeParams.id, hora_ini: $scope.serv.hora_ini, km_inicio: $scope.serv.km_inicio, lugar_salida: $scope.serv.lugar_salida, hora_ter: $scope.serv.hora_ter, km_termino: $scope.serv.km_termino, lugar_llegada: $scope.serv.lugar_llegada, npas: $scope.serv.npas, coord_x: $scope.serv.coord_x, coord_y: $scope.serv.coord_y  
 				});
 				
 				
-				LxNotificationService.alert('Guardado', 'Datos guardados satisfactoriamente',  'OK' , function(answer){
-				if(answer == true){
+		LxNotificationService.confirm('Guardado', 'Ha guardado la informacion correctamente, puede continuar en la bitacora o salir.', { cancel:'Continuar', ok:'Salir' }, function(answer){
+			if(answer == true){
 				history.back();
-				}
-				})
+			}
+		});
 									
 		};
 
