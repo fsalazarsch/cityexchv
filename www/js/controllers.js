@@ -1007,11 +1007,12 @@ angular.module("App")
 				});
 				
 				
-		LxNotificationService.confirm('Guardado', 'Ha guardado la informacion correctamente, puede continuar en la bitacora o salir.', { cancel:'Continuar', ok:'Salir' }, function(answer){
-			if(answer == true){
+		//LxNotificationService.confirm('Guardado', 'Ha guardado la informacion correctamente, puede continuar en la bitacora o salir.', { cancel:'Continuar', ok:'Salir' }, function(answer){
+		//	if(answer == true){
+			alert('Guardado');
 				history.back();
-			}
-		});
+		//	}
+		//})
 									
 		};
 
