@@ -8,7 +8,7 @@
 			<tr>
 				<td>
 			<lx-text-field label="Hi" fixed-label="true" icon="clock">
-						<input type="number" maxlength="2" min=0 max=23 ng-model="serv.hora_inihrs">
+						<input type="number" maxlength="2" min=0 max=23 ng-model="serv.hora_inihrs" ng-change = "cambiar_hora()" class= "hrs">
 						</lx-text-field>
 				</td>
 				<td>:</td>
@@ -33,7 +33,7 @@
 			<tr>
 				<td>
 			<lx-text-field label="Ht" fixed-label="true" icon="clock">
-						<input type="number" maxlength="2" min=0 max=23 ng-model="serv.hora_terhrs">
+						<input type="number" maxlength="2" min=0 max=23 ng-model="serv.hora_terhrs" ng-change = "cambiar_hora()" class= "hrs">
 						</lx-text-field>
 				</td>
 				<td>:</td>

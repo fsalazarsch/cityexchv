@@ -974,15 +974,27 @@ angular.module("App")
 	if(($scope.serv.hora_inimins != '') && ($scope.serv.hora_inihrs == ''))
 		$scope.serv.hora_inihrs = 0;
 	
+		$scope.cambiar_hora =  function() {
+		if(($(this).val() > 24) || ($(this).val() < 0))
+		$(".hrs").val(0);
 		
-		
-		$scope.guardarservbus = function(){
+		};
 
+		$scope.guardarservbus = function(){
+		
+		
 		if(($scope.serv.hora_inihrs != '') && ($scope.serv.hora_inimins == ''))
 		$scope.serv.hora_inimins = 00;
 	
 		if(($scope.serv.hora_inimins != '') && ($scope.serv.hora_inihrs == ''))
 		$scope.serv.hora_inihrs = 0;
+		
+		if(($scope.serv.hora_inihrs < 0) || ($scope.serv.$scope.serv.hora_inihrs > 23))
+			$scope.serv.hora_inihrs = 0;
+
+		if(($scope.serv.hora_inimins < 0) || ($scope.serv.$scope.serv.hora_inimins > 59))
+			$scope.serv.hora_inimins = 0;
+
 		
 		if($scope.serv.hora_inimins < 10)
 			$scope.serv.hora_ini = $scope.serv.hora_inihrs+':0'+$scope.serv.hora_inimins;

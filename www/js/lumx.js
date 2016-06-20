@@ -291,7 +291,13 @@ angular.module('lumx.time-picker', [])
                  }, 400);
              });
          };
- 
+		 
+		 $scope.devaluar = function(){
+			 $scope.display.hours= '';
+			 $scope.display.minutes= '';
+			 
+			 }
+		 
          $scope.closePicker = function()
          {
  
