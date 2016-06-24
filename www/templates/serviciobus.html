@@ -4,7 +4,11 @@
 			<div flex-container ="row">
 				<div flex-item>
 
-			<table>
+					<lx-text-field fixed-label="true" icon="clock">
+						<input type ="text" ng-model="serv.hora_ini">
+					</lx-text-field>
+
+			<!--table>
 			<tr>
 				<td>
 			<lx-text-field label="Hi" fixed-label="true" icon="clock">
@@ -19,7 +23,7 @@
 						</lx-text-field>
 				</td>
 			</tr>
-			</table>
+			</table-->
 							
 					<lx-text-field label="Km inicio" fixed-label="true" icon="car">
 						<input type ="number"  ng-model="serv.km_inicio">
@@ -29,7 +33,7 @@
 						<input type ="text" ng-model="serv.lugar_salida">
 						</lx-text-field>
 
-			<table>
+			<!--table>
 			<tr>
 				<td>
 			<lx-text-field label="Ht" fixed-label="true" icon="clock">
@@ -44,12 +48,12 @@
 						</lx-text-field>
 				</td>
 			</tr>
-			</table>
+			</table-->
 
 						
-					<!--lx-text-field fixed-label="true" icon="clock">
-						<input type ="time" mg-model="serv.hora_ter">
-					</lx-text-field-->
+					<lx-text-field fixed-label="true" icon="clock">
+						<input type ="text" ng-model="serv.hora_ter">
+					</lx-text-field>
 					
 					<lx-text-field label="Km termino" fixed-label="true" icon="car">
 						<input type ="number"  ng-model="serv.km_termino">
