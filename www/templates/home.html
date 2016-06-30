@@ -4,7 +4,7 @@
 			<h1>{{title}}</h1>
 			<div flex-container ="row">
 				
-			<lx-select  placeholder="Seleccione nombre conductor" choices="drivers" ng-model="selects.driver"  min-length="0" ng-change="" allow-clear="true">
+			<lx-select  placeholder="Seleccione nombre conductor" choices="drivers" ng-model="driver.driver" id={{cont}} min-length="0" ng-change= "update()" allow-clear="true">
             <lx-select-selected>
                 {{ $selected.Nombre }}
             </lx-select-selected>

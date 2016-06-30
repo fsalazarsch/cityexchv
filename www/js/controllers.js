@@ -1,6 +1,8 @@
 angular.module("App")
 
 .controller("MainController", function($scope, $resource, $routeParams, DriverResource, $resource, $location, LxNotificationService, tablas, localtime){
+	$scope.driver = { driver: undefined};
+	
 
 	
 	tablas.crearTabla('tbl_folio', 'id_servicio unique,  hr_inicio text, km_inicio text, lugar_salida text, hr_termino text, km_termino text, lugar_llegada text, calidad number, desc_calidad text, coord_x text, coord_y text, tiempo_real text, flag number');
@@ -15,26 +17,48 @@ angular.module("App")
 	
 
 	$scope.verificar = function(){
-
-		
+		$scope.flag = false;
 		$scope.drivers=[];
+
+		y = DriverResource.query(function (response){
+			angular.forEach(response, function (item){
+					$scope.drivers.push(item);
+			});
+		});
+
+		$scope.update = function(){
+			$scope.driver.driver= parseInt($scope.drivers[0].id_driver);
+			console.log($scope.drivers[0]);
+		}
+		
+		
 
 		x = DriverResource.query(function (response) 
 		{
 		    angular.forEach(response, function (item) 
 		    {
 				if(item.passwd == $scope.driver.passwd){
+						
+					if(item.id_driver == $scope.driver.driver.id_driver){
+					if($scope.flag == false)
+						$scope.flag = true;
+						}
+					if(item.id_driver != $scope.driver.driver.id_driver){
+						if($scope.flag == true)
+						$scope.flag = true;
+						}
+				}
+			});
+					if($scope.flag == true){
 					$.post('http://www.city-ex.cl/chv/site/insertlogin', {
 						id: $routeParams.id 
 						});
-					$location.path("/driver/"+item.id_driver);
-				}
-			});
-			//LxNotificationService.error('Usuario o Password incorrectos');
+					$location.path("/driver/"+$scope.driver.driver.id_driver);
+					}
+					else
+					LxNotificationService.error('Usuario o Password incorrectos');
 			//location.reload();
 		});
-		
-		$scope.selects = { driver: undefined};
 	}
 })
 
