@@ -16,25 +16,27 @@ angular.module("App")
 
 	$scope.verificar = function(){
 
-		
+				
 		$scope.drivers=[];
+		$scope.selects = { driver: undefined};
 
 		x = DriverResource.query(function (response) 
 		{
 		    angular.forEach(response, function (item) 
 		    {
-				if(item.passwd == $scope.driver.passwd){
-					$.post('http://www.city-ex.cl/chv/site/insertlogin', {
-						id: $routeParams.id 
-						});
-					$location.path("/driver/"+item.id_driver);
-				}
+				//if(item.passwd == $scope.driver.passwd){
+					//$.post('http://www.city-ex.cl/chv/site/insertlogin', {
+					//	id: $routeParams.id 
+					//	});
+					//$location.path("/driver/"+item.id_driver);
+				//}
 			});
 			//LxNotificationService.error('Usuario o Password incorrectos');
 			//location.reload();
 		});
+				alert($scope.drivers);
+
 		
-		$scope.selects = { driver: undefined};
 	}
 })
 
