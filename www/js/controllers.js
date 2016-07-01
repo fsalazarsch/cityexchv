@@ -28,15 +28,14 @@ angular.module("App")
 
 		$scope.update = function(){
 			$scope.driver.driver= parseInt($scope.drivers[0].id_driver);
-			console.log($scope.drivers[0]);
 		}
-		
 		
 
 		x = DriverResource.query(function (response) 
 		{
 		    angular.forEach(response, function (item) 
 		    {
+
 				if(item.passwd == $scope.driver.passwd){
 						
 					if(item.id_driver == $scope.driver.driver.id_driver){
@@ -57,8 +56,8 @@ angular.module("App")
 					}
 					else
 					LxNotificationService.error('Usuario o Password incorrectos');
-			//location.reload();
 		});
+
 	}
 })
 
