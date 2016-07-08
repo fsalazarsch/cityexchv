@@ -1008,4 +1008,12 @@ angular.module("App")
 		};
 
 	
+})
+.controller('View1Ctrl', function($scope) { //cámara
+    $scope.myPictures = [];
+    $scope.$watch('myPicture', function(value) {
+        if (value) {
+            $scope.myPictures.push(value);
+        }
+    }, true);
 });

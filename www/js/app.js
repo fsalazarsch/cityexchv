@@ -57,7 +57,10 @@ angular.module("App",["lumx","ngRoute","ngResource"])
 				controller: 'ServiciobusController',
 				templateUrl: 'templates/serviciobus.html'
 				})			
-	
+			.when('/camara', {
+				controller: 'View1Ctrl',
+				templateUrl: 'templates/camara.html'
+				})	
 
 	//$compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
 }]);
