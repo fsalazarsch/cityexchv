@@ -1009,11 +1009,26 @@ angular.module("App")
 
 	
 })
-.controller('View1Ctrl', function($scope) { //cámara
-    $scope.myPictures = [];
-    $scope.$watch('myPicture', function(value) {
-        if (value) {
-            $scope.myPictures.push(value);
-        }
-    }, true);
+.controller('View1Ctrl', function($scope, $http) {
+
+    $scope.capturePhoto = function(){
+
+        $scope.test = "test 1";
+
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+        destinationType: Camera.DestinationType.DATA_URL });
+
+    }
+
+    function onSuccess(imageData) {
+
+        var image = imageData;
+
+        alert($scope); // [object Object]
+        alert($scope.test); // test1
+        $scope.test = "test 2"; // Problem: do not show on screen
+        alert($scope.test); // test2
+
+    }
+
 });
