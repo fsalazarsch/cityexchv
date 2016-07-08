@@ -1,0 +1,30 @@
+<br><br><br><br><br>
+		<div class="card top-space">
+			<div flex-container="row">
+				<div flex-container="column"  style="width: 100%;">
+					<div flex-item>
+Toamde camara:
+<div class="card__actions">
+<a camera ng-model='myPicture'class="btn btn--m btn--blue btn--flat" lx-ripple>Tomar Foto</a>
+</div>
+
+<button camera ng-model='myPicture'>Take Picture</button>
+
+<ul ng-repeat="onepic in myPictures">
+    <li style="list-style: none">
+        <input type="image" 
+                  src="{{onepic}}" 
+                  width="250" 
+                  height="250" 
+                  alt="error"/>
+    </li>
+</ul>
+
+						
+						</div>
+				</div>
+			</div>
+		</div>
+
+
+

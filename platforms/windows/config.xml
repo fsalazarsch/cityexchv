@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.cityexchv.cityexchv" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Bitacora_cityex</name>
+<widget id="com.cityexchv.cityexchv" version="4.6.9" versionCode="169" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Bitacora cityexpress</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Bitacora Elctronica para conductores de chv
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="fsalazar.sch@gmail.com" href="http://www.nullpointerex.com">
+        Felipe Salazar Schlotterbeck
     </author>
-    <content src="index.html" />
+    <content src="www/index.html" />
+    <icon src="www/res/icon/icon.png" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
