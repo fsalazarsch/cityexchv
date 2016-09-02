@@ -442,14 +442,23 @@
                 {{ $choice.username }}
             </lx-select-choices>
         </lx-select>
-                
                 <div flex-item>
                     <lx-text-field label="Contraseña">
+                        
                         <input type="password" ng-model="pass">
                         </lx-text-field>
                     </div>
+                <br>
+               
                 </div>
+                <div flex-item>
+                    <lx-text-field label="Mostrar Contraseña">
+					{{ pass }}
+					</lx-text-field>
+				</div>
+
                 </div>   
+
 			</div>
 
 	</lx-tab>
@@ -457,5 +466,5 @@
 <button class="btn btn--xl btn--blue btn--fab ng-scope" style="position: fixed; right: 3%; bottom: 3%; float: right;">
 <i class="icon icon--xl icon--blue icon--circled mdi mdi-content-save" ng-click="guardarfolio()"></i>
 </button>
-
+{{ folio.contacto }}
 <br>

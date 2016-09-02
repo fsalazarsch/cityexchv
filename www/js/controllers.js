@@ -8,7 +8,7 @@ angular.module("App")
 	tablas.crearTabla('tbl_folio', 'id_servicio unique,  hr_inicio text, km_inicio text, lugar_salida text, hr_termino text, km_termino text, lugar_llegada text, calidad number, desc_calidad text, coord_x text, coord_y text, tiempo_real text, flag number');
 	tablas.crearTabla('tbl_folio2', 'id_servicio unique, hr_inicio text, km_inicio text, lugar_salida text, hr_termino text, km_termino text, pasajero text, calidad number, desc_calidad text, coord_x text, coord_y text, tiempo_real text, flag number');
 	
-	tablas.crearTabla('tbl_servicio', 'id_servicio unique, peaje number, estacionamiento number, tag number, km_add number, contacto number, observacion text, flag number');
+	tablas.crearTabla('tbl_servicio', 'id_servicio unique, peaje number, estacionamiento number, tag number, km_add number, contacto number, observacion text, visado number, flag number');
 	tablas.crearTabla('tbl_cierre', 'id_servicio unique, peaje number, estacionamiento number, tag number, km_add number, observacion text, flag number');
 	
 	
@@ -330,6 +330,7 @@ angular.module("App")
 
 		$scope.update = function(){
 			$scope.folio.contacto= parseInt($scope.users[0].id);
+//			$scope.folio.contacto= parseInt($scope.users[0].id);
 		}
 	});
 	
@@ -338,7 +339,7 @@ angular.module("App")
 	//});
 	
 	tablas.insertar('tbl_folio', 'id_servicio, hr_inicio, km_inicio, lugar_salida, hr_termino, km_termino, lugar_llegada, calidad, desc_calidad, coord_x, coord_y, tiempo_real, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"","","", ""');
-	tablas.insertar('tbl_servicio', 'id_servicio, peaje, estacionamiento, tag, km_add, observacion, contacto, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"", "", ""');
+	tablas.insertar('tbl_servicio', 'id_servicio, peaje, estacionamiento, tag, km_add, observacion, contacto, visado, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"", "", "", ""');
 	
 	
 	$scope.guardarfolio = function(){
@@ -439,6 +440,7 @@ angular.module("App")
 		tablas.modcampo('tbl_servicio', 'observacion' , '"'+$scope.folio.observacion+'"', $routeParams.id);
 		
 		tablas.modcampo('tbl_servicio', 'contacto' , $scope.folio.contacto, $routeParams.id);
+		//tablas.modcampo('tbl_servicio', 'visado' , $scope.folio.contacto, $routeParams.id);
 		tablas.modcampo('tbl_servicio', 'flag' , '1' , $routeParams.id); //fue updateada
 		
 		var auxkmi = ki.split(';');
@@ -453,12 +455,12 @@ angular.module("App")
 		}
 		
 		for(var i =0; i< auxhrt.length; i++){
-			if(auxhrt[i] != '')
+			if(auxhrt[i] != '') 
 				valhrt = auxhrt[i];
 		}
 
 		$.post('http://www.city-ex.cl/chv/site/editservicio', {
-			id: $routeParams.id,  peaje: $scope.folio.peaje, estacionamiento: $scope.folio.estacionamiento, km_add: $scope.folio.kms_add, tag: $scope.folio.tag, observaciones:$scope.folio.observacion, contacto: $scope.folio.contacto, pass: $scope.pass, km_inicio: auxkmi[0], km_termino: valkmt, hr_termino: valhrt
+			id: $routeParams.id,  peaje: $scope.folio.peaje, estacionamiento: $scope.folio.estacionamiento, km_add: $scope.folio.kms_add, tag: $scope.folio.tag, observaciones:$scope.folio.observacion, contacto: $scope.folio.contacto, km_inicio: auxkmi[0], km_termino: valkmt, hr_termino: valhrt, rut: $scope.pass
 		});
 		
 		sel = function(item){
