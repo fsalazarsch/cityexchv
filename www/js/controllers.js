@@ -461,6 +461,9 @@ angular.module("App")
 
 		$.post('http://www.city-ex.cl/chv/site/editservicio', {
 			id: $routeParams.id,  peaje: $scope.folio.peaje, estacionamiento: $scope.folio.estacionamiento, km_add: $scope.folio.kms_add, tag: $scope.folio.tag, observaciones:$scope.folio.observacion, contacto: $scope.folio.contacto, km_inicio: auxkmi[0], km_termino: valkmt, hr_termino: valhrt, rut: $scope.pass
+		})
+		.done(function( data ) {
+			LxNotificationService.error(data);
 		});
 		
 		sel = function(item){
