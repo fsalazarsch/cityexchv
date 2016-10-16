@@ -389,36 +389,31 @@
 
 <div class="radio-group mt++">
 <div class="data-table-container">
+
 <table width="100%">
     <tr>
-        <td style="width:25%; padding: 5px;">
-            
-                <div class="radio-button btn--xl btn--red btn--raised" >
-                    <input type="radio" id="radio1" name="radio2" value="1" class="radio-button__input" ng-model="folio.calidad">
-                    <label for="radio1" class="radio-button__label">Deficiente</label>        
-                </div>
-        </td>
-        <td style="width:25%; padding: 5px;">
-             <div class="radio-button btn--xl btn--orange btn--raised" >
-                <input type="radio" id="radio3" name="radio2" value="2" class="radio-button__input" ng-model="folio.calidad">
-                <label for="radio3" class="radio-button__label">Regular</label> 
-            </div>
-        </td>
-        <td style="width:25%; padding: 5px;">
-             <div class="radio-button btn--xl btn--green btn--raised" >
-                <input type="radio" id="radio4" name="radio2" value="3" class="radio-button__input" ng-model="folio.calidad">
-                <label for="radio4" class="radio-button__label">Bueno</label>
-            </div>
-        </td>
-        <td style="width:25%; padding: 5px;">
-             <div class="radio-button btn--xl btn--blue btn--raised" >
-                <input type="radio" id="radio6" name="radio2" value="4" class="radio-button__input" ng-model="folio.calidad">
-                <label for="radio6" class="radio-button__label">Excelente</label>
-            </div>
-        </td>
-    </tr>
+        <td style="width:25%; padding: 5px;"><center>
+			<img id="star1" src="./imgs/star.png" style="width:25%;" value="1" ng-model="folio.calidad" ng-click="cambiarcalidad(1)">
+        </center></td>
+        <td style="width:25%; padding: 5px;"><center>
+			<img id="star2" src="./imgs/star.png" style="width:25%;" value="2" ng-model="folio.calidad" ng-click="cambiarcalidad(2)">
+        </center></td>
+        <td style="width:25%; padding: 5px;"><center>
+			<img id="star3" src="./imgs/star.png" style="width:25%;" value="3" ng-model="folio.calidad" ng-click="cambiarcalidad(3)">
+        </center></td>
+        <td style="width:25%; padding: 5px;"><center>
+			<img id="star4" src="./imgs/star.png" style="width:25%;" value="4" ng-model="folio.calidad" ng-click="cambiarcalidad(4)">
+        </center></td>
+	</tr>
+	<tr>
+		<td><center>Deficiente</center></td>
+		<td><center>Regular</center></td>
+		<td><center>Bueno</center></td>
+		<td><center>Excelente</center></td>
+	</tr>
+	</table>
 
-</table>
+
 </div>
     <center>
     <lx-text-field fixed-label="true" style="width:95%">

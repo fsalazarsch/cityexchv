@@ -148,6 +148,37 @@ angular.module("App")
 	/*
 	 * Extraccion desde tablas locales o BDD
 	 */
+
+		$scope.cambiarcalidad = function(val){
+			if(val == 1)
+			$("#star1").attr("src","./imgs/starok.png");
+			$("#star2").attr("src","./imgs/star.png");
+			$("#star3").attr("src","./imgs/star.png");
+			$("#star4").attr("src","./imgs/star.png");
+			if(val == 2){
+			$("#star1").attr("src","./imgs/starok.png");
+			$("#star2").attr("src","./imgs/starok.png");
+			$("#star3").attr("src","./imgs/star.png");
+			$("#star4").attr("src","./imgs/star.png");
+			}
+			if(val == 3){
+			$("#star1").attr("src","./imgs/starok.png");
+			$("#star2").attr("src","./imgs/starok.png");
+			$("#star3").attr("src","./imgs/starok.png");
+			$("#star4").attr("src","./imgs/star.png");
+			}
+			if(val == 4){
+			$("#star1").attr("src","./imgs/starok.png");
+			$("#star2").attr("src","./imgs/starok.png");
+			$("#star3").attr("src","./imgs/starok.png");
+			$("#star4").attr("src","./imgs/starok.png");
+			}
+
+		$scope.folio.calidad = val;
+		//alert($scope.folio.calidad);
+		}
+
+	
 	cb = function(item){
 		if(item.length > 0){//no vacio
 			if( item[0].id_servicio == $routeParams.id){
@@ -215,8 +246,10 @@ angular.module("App")
 				
 				if(item[0].desc_calidad != '')
 					$scope.folio.desc_calidad = item[0].desc_calidad; 
-					
+		
 				$scope.folio.calidad = item[0].calidad; 					
+				$scope.cambiarcalidad($scope.folio.calidad);
+		
 			}
 		}
 		else{ //vacio, sacando de la BDD
@@ -282,7 +315,9 @@ angular.module("App")
 				if(result.desc_calidad != '')
 					$scope.folio.desc_calidad = result.desc_calidad; 
 				
-				$scope.folio.calidad = result.calidad; 
+				$scope.folio.calidad = result.calidad;
+				$scope.cambiarcalidad($scope.folio.calidad);
+		 
 			});
 		}
 	}
@@ -309,6 +344,7 @@ angular.module("App")
 		}
 	}
 	
+	
 	tablas.selecciona('tbl_folio', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', cb);
 	tablas.selecciona('tbl_servicio', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', c);
 		
@@ -323,7 +359,7 @@ angular.module("App")
 		x = UserResource.query(function (response){
 			angular.forEach(response, function (item){
 				//si son del mismo cc o tienen firma
-				if((item.firma != '') && (item.accessLevel < 75))
+				if((item.firma != '') && (item.firma != '0') && (item.accessLevel < 75))
 					$scope.users.push(item);
 			});
 		});
@@ -332,8 +368,12 @@ angular.module("App")
 			$scope.folio.contacto= parseInt($scope.users[0].id);
 //			$scope.folio.contacto= parseInt($scope.users[0].id);
 		}
+
+
 	});
-	
+
+		
+		
 	//$scope.$watch('hr_inicio[0]', function() {
 	//$scope.folio.hr_inicio = $filter('date')($scope.hr_inicio, 'HH:mm:ss');
 	//});
@@ -963,7 +1003,7 @@ angular.module("App")
 	
 })
 
-.controller("ServiciobusController", function($scope, $resource, $routeParams, $location, $http, $filter, LxNotificationService){
+.controller("ServiciobusController", function($scope, $resource, $routeParams, $location, $http, $filter, ServiciobusResource, LxNotificationService){
 	$scope.serv = {
 		};
 			
@@ -992,7 +1032,22 @@ angular.module("App")
 
 	navigator.geolocation.getCurrentPosition(success, error, options);
 	//fin geolocalizacion
-	
+
+	$scope.backservicio = ServiciobusResource.get({id: $routeParams.id}).$promise.then(function(result){
+		$scope.backservicio = result;
+		$scope.serv.hora_ini = result.hora_inicio;
+		$scope.serv.hora_ter = result.hora_termino;
+		$scope.serv.km_inicio = parseInt(result.km_inicio);
+		$scope.serv.km_termino = parseInt(result.km_termino);
+		$scope.serv.npas = parseInt(result.npas);
+				
+		$scope.serv.lugar_salida = result.lugar_salida;
+		$scope.serv.lugar_llegada = result.lugar_llegada;
+		});
+
+
+
+	//fin scara datos de la bdd
 	
 	$scope.title = "Servicio de bus";
 		
@@ -1013,27 +1068,4 @@ angular.module("App")
 		};
 
 	
-})
-.controller('View1Ctrl', function($scope, $http) {
-
-    $scope.capturePhoto = function(){
-
-        $scope.test = "test 1";
-
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-        destinationType: Camera.DestinationType.DATA_URL });
-
-    }
-
-    function onSuccess(imageData) {
-
-        var image = imageData;
-
-        alert($scope); // [object Object]
-        alert($scope.test); // test1
-        $scope.test = "test 2"; // Problem: do not show on screen
-        alert($scope.test); // test2
-
-    }
-
 });
