@@ -16,7 +16,7 @@
     <author email="fsalazar.sch@gmail.com" href="http://www.nullpointerex.com">
         Felipe Salazar Schlotterbeck
     </author>
-    <content src="www/index.html" />
+    <content src="index.html" />
     <icon src="www/res/icon/icon.png" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
