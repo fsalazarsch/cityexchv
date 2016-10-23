@@ -1,3 +1,37 @@
+<script>
+function aparecer(){
+	$(".escondida").show();
+	}
+
+var i=0;
+var innhtml= '';
+for(i=0;i<20;i++){
+	if(i > 9)
+	innhtml += '<tr class="escondida" hidden><td>';
+	else
+	innhtml += '<tr><td>';
+	innhtml +='<lx-text-field fixed-label="true">';
+	innhtml +='<input type="text" ng-model="folio.hr_inicio['+i+']"></lx-text-field>';
+	innhtml +='</td><td>';
+	innhtml +='<lx-text-field fixed-label="true">';
+	innhtml +='<input type="number" ng-model="folio.km_inicio['+i+']">';
+	innhtml +='</lx-text-field>';
+    innhtml +='</td><td><lx-text-field fixed-label="true">';
+    innhtml +='<input type="text" ng-model="folio.lugar_salida['+i+']">';
+    innhtml +='</lx-text-field></td>';
+    innhtml += '<td><lx-text-field fixed-label="true">';
+	innhtml += '<input type="text" ng-model="folio.hr_termino['+i+']"></lx-text-field>';
+    innhtml += '</td><td><lx-text-field fixed-label="true">';
+	innhtml += '<input type="number" ng-model="folio.km_termino['+i+']">';
+	innhtml += '</lx-text-field></td>';
+    innhtml += '<td><lx-text-field fixed-label="true">';
+    innhtml += '<input type="text" ng-model="folio.lugar_llegada['+i+']">';
+	innhtml +='</lx-text-field></td></tr>';
+	}
+
+$('#cuerpo').html(innhtml);
+</script>
+
 <lx-tabs>
 	<lx-tab heading="{{title}}">
 		<center>
@@ -36,319 +70,8 @@
             </tr>
         </thead>
 
-        <tbody>
-            <tr>	
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_inicio[0]"></lx-text-field>
-					</td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_inicio[0]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_salida[0]">
-					</lx-text-field>
-                </td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_termino[0]"></lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_termino[0]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_llegada[0]">
-					</lx-text-field>
-                </td>
-            </tr>
-
- <tr>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_inicio[1]"></lx-text-field>
-					</td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_inicio[1]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_salida[1]">
-					</lx-text-field>
-                </td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_termino[1]"></lx-text-field>           
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_termino[1]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_llegada[1]">
-					</lx-text-field>
-                </td>
-            </tr>
-
- <tr>
-
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_inicio[2]"></lx-text-field>
-					</td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_inicio[2]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_salida[2]">
-					</lx-text-field>
-                </td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_termino[2]"></lx-text-field>                
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_termino[2]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_llegada[2]">
-					</lx-text-field>
-                </td>
-            </tr>
-            
-<tr>
-
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_inicio[3]"></lx-text-field>
-					</td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_inicio[3]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_salida[3]">
-					</lx-text-field>
-                </td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_termino[3]"></lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_termino[3]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_llegada[3]">
-					</lx-text-field>
-                </td>
-            </tr>
-            
-<tr>
-
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_inicio[4]"></lx-text-field>
-					</td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_inicio[4]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_salida[4]">
-					</lx-text-field>
-                </td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_termino[4]"></lx-text-field>       
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_termino[4]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_llegada[4]">
-					</lx-text-field>
-                </td>
-            </tr>
-            
-<tr>
-
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_inicio[5]"></lx-text-field>
-					</td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_inicio[5]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_salida[5]">
-					</lx-text-field>
-                </td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_termino[5]"></lx-text-field>          
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_termino[5]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_llegada[5]">
-					</lx-text-field>
-                </td>
-            </tr>
-            
-<tr>
-
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_inicio[6]"></lx-text-field>
-					</td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_inicio[6]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_salida[6]">
-					</lx-text-field>
-                </td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_termino[6]"></lx-text-field>           
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_termino[6]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_llegada[6]">
-					</lx-text-field>
-                </td>
-            </tr>            
-			<tr>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_inicio[7]"></lx-text-field>
-					</td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_inicio[7]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_salida[7]">
-					</lx-text-field>
-                </td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_termino[7]"></lx-text-field>             
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_termino[7]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_llegada[7]">
-					</lx-text-field>
-                </td>
-            </tr>
-			<tr>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_inicio[8]"></lx-text-field>
-					</td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_inicio[8]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_salida[8]">
-					</lx-text-field>
-                </td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_termino[8]"></lx-text-field>              
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_termino[8]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_llegada[8]">
-					</lx-text-field>
-                </td>
-            </tr>
-            <tr>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_inicio[9]"></lx-text-field>
-					</td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_inicio[9]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_salida[9]">
-					</lx-text-field>
-                </td>
-                <td>
-					<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.hr_termino[9]"></lx-text-field>           
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="number" ng-model="folio.km_termino[9]">
-					</lx-text-field>
-                </td>
-                <td>
-                	<lx-text-field fixed-label="true">
-					<input type="text" ng-model="folio.lugar_llegada[9]">
-					</lx-text-field>
-                </td>
-            </tr>
-        </tbody>
+        <tbody id="cuerpo">		
+  </tbody>
     </table>
     </div>
 <div class="radio-group mt++">
@@ -393,23 +116,23 @@
 <table width="100%">
     <tr>
         <td style="width:25%; padding: 5px;"><center>
-			<img id="star1" src="./imgs/star.png" style="width:25%;" value="1" ng-model="folio.calidad" ng-click="cambiarcalidad(1)">
-        </center></td>
-        <td style="width:25%; padding: 5px;"><center>
-			<img id="star2" src="./imgs/star.png" style="width:25%;" value="2" ng-model="folio.calidad" ng-click="cambiarcalidad(2)">
+			<img id="star4" src="./imgs/star.png" style="width:25%;" value="4" ng-model="folio.calidad" ng-click="cambiarcalidad(4)">
         </center></td>
         <td style="width:25%; padding: 5px;"><center>
 			<img id="star3" src="./imgs/star.png" style="width:25%;" value="3" ng-model="folio.calidad" ng-click="cambiarcalidad(3)">
         </center></td>
         <td style="width:25%; padding: 5px;"><center>
-			<img id="star4" src="./imgs/star.png" style="width:25%;" value="4" ng-model="folio.calidad" ng-click="cambiarcalidad(4)">
+			<img id="star2" src="./imgs/star.png" style="width:25%;" value="2" ng-model="folio.calidad" ng-click="cambiarcalidad(2)">
+        </center></td>
+        <td style="width:25%; padding: 5px;"><center>
+			<img id="star1" src="./imgs/star.png" style="width:25%;" value="1" ng-model="folio.calidad" ng-click="cambiarcalidad(1)">
         </center></td>
 	</tr>
 	<tr>
-		<td><center>Deficiente</center></td>
-		<td><center>Regular</center></td>
-		<td><center>Bueno</center></td>
 		<td><center>Excelente</center></td>
+		<td><center>Bueno</center></td>
+		<td><center>Regular</center></td>
+		<td><center>Deficiente</center></td>
 	</tr>
 	</table>
 
@@ -460,6 +183,9 @@
 </lx-tabs>
 <button class="btn btn--xl btn--blue btn--fab ng-scope" style="position: fixed; right: 3%; bottom: 3%; float: right;">
 <i class="icon icon--xl icon--blue icon--circled mdi mdi-content-save" ng-click="guardarfolio()"></i>
+</button>
+<button class="btn btn--xl btn--green btn--fab ng-scope" style="position: fixed; right: 12%; bottom: 3%; float: right;">
+<i class="icon icon--xl icon--green icon--circled mdi mdi-menu-down" onclick="aparecer()"></i>
 </button>
 <!--{{ folio.contacto }}-->
 <br>

@@ -391,64 +391,64 @@ angular.module("App")
 		var lugar_llegada = $scope.folio.lugar_llegada;
 		var hi = '', ht = '', ki = '', kt = '', ls = '', lle = '';
 		
-		for(var i =0; i< 10 ; i++){
+		for(var i =0; i< 20 ; i++){
 			if(hr_inicio[i] !== undefined){
 				hi += hr_inicio[i];
-				if(i < 9)
+				if(i < 19)
 					hi += ';';
 			}
 			else{
-				if(i < 9)
+				if(i < 19)
 					hi +=';';
 			}
 			
 			if(hr_termino[i] !== undefined){
 				ht += hr_termino[i];
-				if(i < 9)
+				if(i < 19)
 					ht += ';';
 			}
 			else{
-				if(i < 9)
+				if(i < 19)
 					ht +=';';
 			}
 				
 			if(km_inicio[i] !== undefined){
 				ki += km_inicio[i];
-				if(i < 9)
+				if(i < 19)
 					ki += ';';
 			}
 			else{
-				if(i < 9)
+				if(i < 19)
 					ki +=';';
 			}
 
 			if(km_termino[i] !== undefined){
 				kt += km_termino[i];
-				if(i < 9)
+				if(i < 19)
 					kt += ';';
 			}
 			else{
-				if(i < 9)
+				if(i < 19)
 					kt +=';';
 			}
 
 			if(lugar_salida[i] !== undefined){
 				ls += lugar_salida[i];
-				if(i < 9)
+				if(i < 19)
 					ls += ';';
 			}
 			else{
-				if(i < 9)
+				if(i < 19)
 					ls +=';';
 			}
 
 			if(lugar_llegada[i] !== undefined){
 				lle += lugar_llegada[i];
-				if(i < 9)
+				if(i < 19)
 					lle += ';';
 			}
 			else{
-				if(i < 9)
+				if(i < 19)
 					lle +=';';
 			}
 		}
