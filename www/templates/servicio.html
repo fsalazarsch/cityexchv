@@ -151,7 +151,7 @@ $('#cuerpo').html(innhtml);
               <div class="card top-space" style="width: 95%;">
             <div flex-container ="row">
                 
-            <lx-select  placeholder="Seleccione nombre" choices="users" ng-model="folio.contacto" id="{{cont}}" min-length="0"  style="width:50%" ng-change= "update()" allow-clear="true">
+            <lx-select  placeholder="Seleccione nombre" choices="users" ng-model="folio.contacto" id="{{cont}}" min-length="6"  style="width:50%" ng-change= "update()" allow-clear="true">
             <lx-select-selected>
                 {{ $selected.username }}
             </lx-select-selected>
