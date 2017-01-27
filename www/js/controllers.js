@@ -244,8 +244,10 @@ angular.module("App")
 				}
 				$scope.folio.lugar_llegada = JSON.parse(JSON.stringify(cad));
 				
-				if(item[0].desc_calidad != '')
-					$scope.folio.desc_calidad = item[0].desc_calidad; 
+				if(item[0].desc_calidad && item[0].desc_calidad != 'undefined')
+					$scope.folio.desc_calidad = item[0].desc_calidad;
+				else
+				     $scope.folio.desc_calidad = '';
 		
 				$scope.folio.calidad = item[0].calidad; 					
 				$scope.cambiarcalidad($scope.folio.calidad);
@@ -312,9 +314,10 @@ angular.module("App")
 				}
 				$scope.folio.lugar_llegada = JSON.parse(JSON.stringify(cad));
 				
-				if(result.desc_calidad != '')
+				if(result.desc_calidad && result.desc_calidad != 'undefined' )
 					$scope.folio.desc_calidad = result.desc_calidad; 
-				
+				else
+				    $scope.folio.desc_calidad = ''; 
 				$scope.folio.calidad = result.calidad;
 				$scope.cambiarcalidad($scope.folio.calidad);
 		 
@@ -329,7 +332,10 @@ angular.module("App")
 				$scope.folio.estacionamiento = item[0].estacionamiento; 
 				$scope.folio.tag = item[0].tag; 
 				$scope.folio.kms_add = item[0].km_add; 
-				$scope.folio.observacion = item[0].observacion; 
+				if (item[0].observacion && item[0].observacion != 'undefined' )
+				$scope.folio.observacion = item[0].observacion;
+				else
+				$scope.folio.observacion = '';
 			}
 		}
 		else{ //vacio
@@ -339,7 +345,10 @@ angular.module("App")
 				$scope.folio.estacionamiento = parseInt(result.estacionamiento); 
 				$scope.folio.tag = parseInt(result.tag); 
 				$scope.folio.kms_add = parseInt(result.km_adicional); 
-				$scope.folio.observacion = result.observacion; 
+				if (result.observacion && result.observacion != 'undefined' )
+				$scope.folio.observacion = result.observacion;
+				else
+				$scope.folio.observacion = '';
 			});
 		}
 	}
@@ -571,7 +580,10 @@ angular.module("App")
 				$scope.driver2 = item[0].driver;
 				
 				$scope.folio.calidad = item[0].calidad;
+				if(item[0].desc_calidad && item[0].desc_calidad != 'undefined')
 				$scope.folio.desc_calidad = item[0].desc_calidad;
+				else
+				$scope.folio.desc_calidad = '';
 				//hr_ini			
 				var hras = item[0].hr_inicio.split(';');
 				var cad = {};
