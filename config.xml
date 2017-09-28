@@ -12,7 +12,7 @@
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-background-mode" spec="~0.7.2" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
-    <plugin name="org.apache.cordova.geolocation" />
+    <plugin name="cordova-plugin-geolocation" />
     <icon src="www/res/icon/icon.png" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
