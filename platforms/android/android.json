@@ -15,6 +15,22 @@
                         {
                             "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"BackgroundMode\"><param name=\"android-package\" value=\"de.appplant.cordova.plugin.background.BackgroundMode\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"KeepRunning\" value=\"true\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"AndroidLaunchMode\" value=\"singleInstance\" />",
+                            "count": 1
                         }
                     ]
                 }
@@ -24,6 +40,18 @@
                     "/*": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest/application": [
+                        {
+                            "xml": "<service android:name=\"de.appplant.cordova.plugin.background.ForegroundService\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
                             "count": 1
                         }
                     ]
@@ -39,6 +67,12 @@
             "PACKAGE_NAME": "com.cityexchv.cityexchv"
         },
         "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.cityexchv.cityexchv"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.cityexchv.cityexchv"
+        },
+        "cordova-plugin-background-mode": {
             "PACKAGE_NAME": "com.cityexchv.cityexchv"
         }
     },
@@ -76,11 +110,28 @@
             "clobbers": [
                 "CameraPopoverHandle"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device/www/device.js",
+            "id": "cordova-plugin-device.device",
+            "clobbers": [
+                "device"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
+            "id": "cordova-plugin-background-mode.BackgroundMode",
+            "clobbers": [
+                "cordova.plugins.backgroundMode",
+                "plugin.backgroundMode"
+            ]
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.1",
         "cordova-plugin-compat": "1.0.0",
-        "cordova-plugin-camera": "2.2.1-dev"
+        "cordova-plugin-camera": "2.2.1-dev",
+        "cordova-plugin-device": "1.1.6",
+        "cordova-plugin-background-mode": "0.7.2"
     }
 }

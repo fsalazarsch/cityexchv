@@ -36,7 +36,35 @@
 	
 	<script type="text/javascript">
 
-        //app.initialize();
+		//cordova.plugins.backgroundMode.enable();
+		var mins = 0;
+
+			$.get( "http://www.city-ex.cl/chv/site/getminutos" )
+  			.done(function( data ) {
+    		mins = parseInt(data);
+    		});
+
+
+		function showPosition(position) {
+		$.post( "http://www.city-ex.cl/chv/site/guardarcoords", { coordx: position.coords.latitude, coordy: position.coords.longitude } );
+    	alert("Lat: " + position.coords.latitude + " -- Long: " + position.coords.longitude); 
+		}
+
+		function getgeo(){
+    	if (navigator.geolocation) {
+        	navigator.geolocation.getCurrentPosition(showPosition);
+    	} else {
+        	console.log( "Geolocation is not supported by this browser.");
+    	}
+
+	    setTimeout(getgeo, mins*1000);
+		}
+
+		$(function() {
+			getgeo();
+		});
+
+        
     </script>
 </head>
 <body>

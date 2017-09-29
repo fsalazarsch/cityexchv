@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-    <Identity Name="com.cityexchv.cityexchv" Publisher="CN=$username$" Version="4.6.9.0" />
+    <Identity Name="com.cityexchv.cityexchv" Publisher="CN=$username$" Version="4.7.10.0" />
     <Properties>
         <DisplayName>Bitacora cityexpress</DisplayName>
         <PublisherDisplayName>Felipe Salazar Schlotterbeck</PublisherDisplayName>
@@ -14,7 +14,7 @@
         <Resource Language="x-generate" />
     </Resources>
     <Applications>
-        <Application Id="com.cityexchv.cityexchv" StartPage="www/www/index.html">
+        <Application Id="com.cityexchv.cityexchv" StartPage="www/index.html">
             <VisualElements BackgroundColor="#464646" Description="CordovaApp" DisplayName="Bitacora cityexpress" ForegroundText="light" Logo="images\Square150x150Logo.png" SmallLogo="images\Square30x30Logo.png">
                 <DefaultTile ShowName="allLogos" WideLogo="images\Wide310x150Logo.png" />
                 <SplashScreen Image="images\splashscreen.png" />

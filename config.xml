@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.cityexchv.cityexchv" versionCode="200" version="4.7.10" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.cityexchv.cityexchv" version="4.7.10" versionCode="200" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Bitacora cityexpress</name>
     <description>
         Bitacora Elctronica para conductores de chv
@@ -7,10 +7,8 @@
     <author email="fsalazar.sch@gmail.com" href="http://www.nullpointerex.com">
         Felipe Salazar Schlotterbeck
     </author>
-    
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
-    <plugin name="cordova-plugin-background-mode" spec="~0.7.2" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-geolocation" />
     <icon src="www/res/icon/icon.png" />
@@ -31,4 +29,5 @@
     <engine name="ios" spec="~4.1.0" />
     <engine name="android" spec="~5.1.1" />
     <engine name="windows" spec="~4.3.1" />
+    <plugin name="cordova-plugin-background-mode" spec="~0.7.2" />
 </widget>

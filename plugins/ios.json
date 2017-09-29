@@ -12,10 +12,16 @@
         },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.cityexchv.cityexchv"
+        },
+        "cordova-plugin-background-mode": {
+            "PACKAGE_NAME": "com.cityexchv.cityexchv"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.cityexchv.cityexchv"
+        },
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.cityexchv.cityexchv"
         }
     }

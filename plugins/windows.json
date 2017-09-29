@@ -12,11 +12,17 @@
         },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "Bitacora_cityex"
+        },
+        "cordova-plugin-background-mode": {
+            "PACKAGE_NAME": "Bitacora cityexpress"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "Bitacora_cityex"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "Bitacora cityexpress"
         }
     }
 }

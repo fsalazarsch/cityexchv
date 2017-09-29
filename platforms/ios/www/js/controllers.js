@@ -8,7 +8,7 @@ angular.module("App")
 	tablas.crearTabla('tbl_folio', 'id_servicio unique,  hr_inicio text, km_inicio text, lugar_salida text, hr_termino text, km_termino text, lugar_llegada text, calidad number, desc_calidad text, coord_x text, coord_y text, tiempo_real text, flag number');
 	tablas.crearTabla('tbl_folio2', 'id_servicio unique, hr_inicio text, km_inicio text, lugar_salida text, hr_termino text, km_termino text, pasajero text, calidad number, desc_calidad text, coord_x text, coord_y text, tiempo_real text, flag number');
 	
-	tablas.crearTabla('tbl_servicio', 'id_servicio unique, peaje number, estacionamiento number, tag number, km_add number, contacto number, observacion text, flag number');
+	tablas.crearTabla('tbl_servicio', 'id_servicio unique, peaje number, estacionamiento number, tag number, km_add number, contacto number, observacion text, visado number, flag number');
 	tablas.crearTabla('tbl_cierre', 'id_servicio unique, peaje number, estacionamiento number, tag number, km_add number, observacion text, flag number');
 	
 	
@@ -148,6 +148,37 @@ angular.module("App")
 	/*
 	 * Extraccion desde tablas locales o BDD
 	 */
+
+		$scope.cambiarcalidad = function(val){
+			if(val == 1)
+			$("#star1").attr("src","./imgs/starok.png");
+			$("#star2").attr("src","./imgs/star.png");
+			$("#star3").attr("src","./imgs/star.png");
+			$("#star4").attr("src","./imgs/star.png");
+			if(val == 2){
+			$("#star1").attr("src","./imgs/starok.png");
+			$("#star2").attr("src","./imgs/starok.png");
+			$("#star3").attr("src","./imgs/star.png");
+			$("#star4").attr("src","./imgs/star.png");
+			}
+			if(val == 3){
+			$("#star1").attr("src","./imgs/starok.png");
+			$("#star2").attr("src","./imgs/starok.png");
+			$("#star3").attr("src","./imgs/starok.png");
+			$("#star4").attr("src","./imgs/star.png");
+			}
+			if(val == 4){
+			$("#star1").attr("src","./imgs/starok.png");
+			$("#star2").attr("src","./imgs/starok.png");
+			$("#star3").attr("src","./imgs/starok.png");
+			$("#star4").attr("src","./imgs/starok.png");
+			}
+
+		$scope.folio.calidad = val;
+		//alert($scope.folio.calidad);
+		}
+
+	
 	cb = function(item){
 		if(item.length > 0){//no vacio
 			if( item[0].id_servicio == $routeParams.id){
@@ -213,10 +244,14 @@ angular.module("App")
 				}
 				$scope.folio.lugar_llegada = JSON.parse(JSON.stringify(cad));
 				
-				if(item[0].desc_calidad != '')
-					$scope.folio.desc_calidad = item[0].desc_calidad; 
-					
+				if(item[0].desc_calidad && item[0].desc_calidad != 'undefined')
+					$scope.folio.desc_calidad = item[0].desc_calidad;
+				else
+				     $scope.folio.desc_calidad = '';
+		
 				$scope.folio.calidad = item[0].calidad; 					
+				$scope.cambiarcalidad($scope.folio.calidad);
+		
 			}
 		}
 		else{ //vacio, sacando de la BDD
@@ -279,10 +314,13 @@ angular.module("App")
 				}
 				$scope.folio.lugar_llegada = JSON.parse(JSON.stringify(cad));
 				
-				if(result.desc_calidad != '')
+				if(result.desc_calidad && result.desc_calidad != 'undefined' )
 					$scope.folio.desc_calidad = result.desc_calidad; 
-				
-				$scope.folio.calidad = result.calidad; 
+				else
+				    $scope.folio.desc_calidad = ''; 
+				$scope.folio.calidad = result.calidad;
+				$scope.cambiarcalidad($scope.folio.calidad);
+		 
 			});
 		}
 	}
@@ -294,7 +332,10 @@ angular.module("App")
 				$scope.folio.estacionamiento = item[0].estacionamiento; 
 				$scope.folio.tag = item[0].tag; 
 				$scope.folio.kms_add = item[0].km_add; 
-				$scope.folio.observacion = item[0].observacion; 
+				if (item[0].observacion && item[0].observacion != 'undefined' )
+				$scope.folio.observacion = item[0].observacion;
+				else
+				$scope.folio.observacion = '';
 			}
 		}
 		else{ //vacio
@@ -304,10 +345,14 @@ angular.module("App")
 				$scope.folio.estacionamiento = parseInt(result.estacionamiento); 
 				$scope.folio.tag = parseInt(result.tag); 
 				$scope.folio.kms_add = parseInt(result.km_adicional); 
-				$scope.folio.observacion = result.observacion; 
+				if (result.observacion && result.observacion != 'undefined' )
+				$scope.folio.observacion = result.observacion;
+				else
+				$scope.folio.observacion = '';
 			});
 		}
 	}
+	
 	
 	tablas.selecciona('tbl_folio', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', cb);
 	tablas.selecciona('tbl_servicio', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', c);
@@ -323,22 +368,27 @@ angular.module("App")
 		x = UserResource.query(function (response){
 			angular.forEach(response, function (item){
 				//si son del mismo cc o tienen firma
-				if((item.firma != '') && (item.accessLevel < 75))
+				if((item.firma != '') && (item.firma != '0') && (item.accessLevel < 75))
 					$scope.users.push(item);
 			});
 		});
 
 		$scope.update = function(){
 			$scope.folio.contacto= parseInt($scope.users[0].id);
+//			$scope.folio.contacto= parseInt($scope.users[0].id);
 		}
+
+
 	});
-	
+
+		
+		
 	//$scope.$watch('hr_inicio[0]', function() {
 	//$scope.folio.hr_inicio = $filter('date')($scope.hr_inicio, 'HH:mm:ss');
 	//});
 	
 	tablas.insertar('tbl_folio', 'id_servicio, hr_inicio, km_inicio, lugar_salida, hr_termino, km_termino, lugar_llegada, calidad, desc_calidad, coord_x, coord_y, tiempo_real, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"","","", ""');
-	tablas.insertar('tbl_servicio', 'id_servicio, peaje, estacionamiento, tag, km_add, observacion, contacto, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"", "", ""');
+	tablas.insertar('tbl_servicio', 'id_servicio, peaje, estacionamiento, tag, km_add, observacion, contacto, visado, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"", "", "", ""');
 	
 	
 	$scope.guardarfolio = function(){
@@ -350,64 +400,64 @@ angular.module("App")
 		var lugar_llegada = $scope.folio.lugar_llegada;
 		var hi = '', ht = '', ki = '', kt = '', ls = '', lle = '';
 		
-		for(var i =0; i< 10 ; i++){
+		for(var i =0; i< 20 ; i++){
 			if(hr_inicio[i] !== undefined){
 				hi += hr_inicio[i];
-				if(i < 9)
+				if(i < 19)
 					hi += ';';
 			}
 			else{
-				if(i < 9)
+				if(i < 19)
 					hi +=';';
 			}
 			
 			if(hr_termino[i] !== undefined){
 				ht += hr_termino[i];
-				if(i < 9)
+				if(i < 19)
 					ht += ';';
 			}
 			else{
-				if(i < 9)
+				if(i < 19)
 					ht +=';';
 			}
 				
 			if(km_inicio[i] !== undefined){
 				ki += km_inicio[i];
-				if(i < 9)
+				if(i < 19)
 					ki += ';';
 			}
 			else{
-				if(i < 9)
+				if(i < 19)
 					ki +=';';
 			}
 
 			if(km_termino[i] !== undefined){
 				kt += km_termino[i];
-				if(i < 9)
+				if(i < 19)
 					kt += ';';
 			}
 			else{
-				if(i < 9)
+				if(i < 19)
 					kt +=';';
 			}
 
 			if(lugar_salida[i] !== undefined){
 				ls += lugar_salida[i];
-				if(i < 9)
+				if(i < 19)
 					ls += ';';
 			}
 			else{
-				if(i < 9)
+				if(i < 19)
 					ls +=';';
 			}
 
 			if(lugar_llegada[i] !== undefined){
 				lle += lugar_llegada[i];
-				if(i < 9)
+				if(i < 19)
 					lle += ';';
 			}
 			else{
-				if(i < 9)
+				if(i < 19)
 					lle +=';';
 			}
 		}
@@ -439,6 +489,7 @@ angular.module("App")
 		tablas.modcampo('tbl_servicio', 'observacion' , '"'+$scope.folio.observacion+'"', $routeParams.id);
 		
 		tablas.modcampo('tbl_servicio', 'contacto' , $scope.folio.contacto, $routeParams.id);
+		//tablas.modcampo('tbl_servicio', 'visado' , $scope.folio.contacto, $routeParams.id);
 		tablas.modcampo('tbl_servicio', 'flag' , '1' , $routeParams.id); //fue updateada
 		
 		var auxkmi = ki.split(';');
@@ -453,12 +504,15 @@ angular.module("App")
 		}
 		
 		for(var i =0; i< auxhrt.length; i++){
-			if(auxhrt[i] != '')
+			if(auxhrt[i] != '') 
 				valhrt = auxhrt[i];
 		}
 
 		$.post('http://www.city-ex.cl/chv/site/editservicio', {
-			id: $routeParams.id,  peaje: $scope.folio.peaje, estacionamiento: $scope.folio.estacionamiento, km_add: $scope.folio.kms_add, tag: $scope.folio.tag, observaciones:$scope.folio.observacion, contacto: $scope.folio.contacto, pass: $scope.pass, km_inicio: auxkmi[0], km_termino: valkmt, hr_termino: valhrt
+			id: $routeParams.id,  peaje: $scope.folio.peaje, estacionamiento: $scope.folio.estacionamiento, km_add: $scope.folio.kms_add, tag: $scope.folio.tag, observaciones:$scope.folio.observacion, contacto: $scope.folio.contacto, km_inicio: auxkmi[0], km_termino: valkmt, hr_termino: valhrt, rut: $scope.pass
+		})
+		.done(function( data ) {
+			LxNotificationService.error(data);
 		});
 		
 		sel = function(item){
@@ -526,7 +580,10 @@ angular.module("App")
 				$scope.driver2 = item[0].driver;
 				
 				$scope.folio.calidad = item[0].calidad;
+				if(item[0].desc_calidad && item[0].desc_calidad != 'undefined')
 				$scope.folio.desc_calidad = item[0].desc_calidad;
+				else
+				$scope.folio.desc_calidad = '';
 				//hr_ini			
 				var hras = item[0].hr_inicio.split(';');
 				var cad = {};
@@ -958,7 +1015,7 @@ angular.module("App")
 	
 })
 
-.controller("ServiciobusController", function($scope, $resource, $routeParams, $location, $http, $filter, LxNotificationService){
+.controller("ServiciobusController", function($scope, $resource, $routeParams, $location, $http, $filter, ServiciobusResource, LxNotificationService){
 	$scope.serv = {
 		};
 			
@@ -987,7 +1044,22 @@ angular.module("App")
 
 	navigator.geolocation.getCurrentPosition(success, error, options);
 	//fin geolocalizacion
-	
+
+	$scope.backservicio = ServiciobusResource.get({id: $routeParams.id}).$promise.then(function(result){
+		$scope.backservicio = result;
+		$scope.serv.hora_ini = result.hora_inicio;
+		$scope.serv.hora_ter = result.hora_termino;
+		$scope.serv.km_inicio = parseInt(result.km_inicio);
+		$scope.serv.km_termino = parseInt(result.km_termino);
+		$scope.serv.npas = parseInt(result.npas);
+				
+		$scope.serv.lugar_salida = result.lugar_salida;
+		$scope.serv.lugar_llegada = result.lugar_llegada;
+		});
+
+
+
+	//fin scara datos de la bdd
 	
 	$scope.title = "Servicio de bus";
 		
@@ -1008,12 +1080,4 @@ angular.module("App")
 		};
 
 	
-})
-.controller('View1Ctrl', function($scope) { //cámara
-    $scope.myPictures = [];
-    $scope.$watch('myPicture', function(value) {
-        if (value) {
-            $scope.myPictures.push(value);
-        }
-    }, true);
 });

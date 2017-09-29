@@ -21,6 +21,11 @@
 		332F734CAF434A05B22CB993 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CE401961DAA4D3F9C9EC55C /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		407CAF6D344A460AB58DB34B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83728AC59BE6453C852BDD8C /* CoreLocation.framework */; };
 		D4EB74F1BB224D52B8AA32CF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A28023EB487447E8C7E498D /* AVFoundation.framework */; };
+		6C36894693F749398281A3F7 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FBDDC85B4394476B81B9555 /* CDVDevice.m */; };
+		3DB7253094AF43BB9BB82C3B /* libz.tbd in Resources */ = {isa = PBXBuildFile; fileRef = E0C324307CEC494A9E58C24C /* libz.tbd */; };
+		AD248ED6A3734CFCB0C815E2 /* APPBackgroundMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 529E190E71D944BBA4AB4012 /* APPBackgroundMode.m */; };
+		071A085656C447969391D306 /* APPMethodMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0271A03B4F4B67BCD99DAB /* APPMethodMagic.m */; };
+		C5692804D248470B8BE9B110 /* appbeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 944C0A78497B4C0FB0D52611 /* appbeep.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,14 @@
 		2CE401961DAA4D3F9C9EC55C /* ImageIO.framework */ = {isa = PBXFileReference; name = "ImageIO.framework"; path = "System/Library/Frameworks/ImageIO.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		83728AC59BE6453C852BDD8C /* CoreLocation.framework */ = {isa = PBXFileReference; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		0A28023EB487447E8C7E498D /* AVFoundation.framework */ = {isa = PBXFileReference; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		9FBDDC85B4394476B81B9555 /* CDVDevice.m */ = {isa = PBXFileReference; name = "CDVDevice.m"; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		BA1CA9EDACB14BB0975EC4EF /* CDVDevice.h */ = {isa = PBXFileReference; name = "CDVDevice.h"; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		E0C324307CEC494A9E58C24C /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "libz.tbd"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		529E190E71D944BBA4AB4012 /* APPBackgroundMode.m */ = {isa = PBXFileReference; name = "APPBackgroundMode.m"; path = "cordova-plugin-background-mode/APPBackgroundMode.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		FF0271A03B4F4B67BCD99DAB /* APPMethodMagic.m */ = {isa = PBXFileReference; name = "APPMethodMagic.m"; path = "cordova-plugin-background-mode/APPMethodMagic.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		C3F1E5C7B8364353A063B6E2 /* APPBackgroundMode.h */ = {isa = PBXFileReference; name = "APPBackgroundMode.h"; path = "cordova-plugin-background-mode/APPBackgroundMode.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		917C6068279948F79DD2C914 /* APPMethodMagic.h */ = {isa = PBXFileReference; name = "APPMethodMagic.h"; path = "cordova-plugin-background-mode/APPMethodMagic.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		944C0A78497B4C0FB0D52611 /* appbeep.wav */ = {isa = PBXFileReference; name = "appbeep.wav"; path = "appbeep.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +94,7 @@
 				332F734CAF434A05B22CB993 /* ImageIO.framework in Frameworks */,
 				407CAF6D344A460AB58DB34B /* CoreLocation.framework in Frameworks */,
 				D4EB74F1BB224D52B8AA32CF /* AVFoundation.framework in Frameworks */,
+				3DB7253094AF43BB9BB82C3B /* libz.tbd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +156,7 @@
 				0207DA571B56EA530066E2B4 /* Images.xcassets */,
 				3047A50E1AB8057F00498E2A /* config */,
 				8D1107310486CEB800E47090 /* Bitacora cityexpress-Info.plist */,
+				944C0A78497B4C0FB0D52611 /* appbeep.wav */,
 			);
 			name = Resources;
 			path = "Bitacora cityexpress/Resources";
@@ -153,6 +168,7 @@
 				2CE401961DAA4D3F9C9EC55C /* ImageIO.framework */,
 				83728AC59BE6453C852BDD8C /* CoreLocation.framework */,
 				0A28023EB487447E8C7E498D /* AVFoundation.framework */,
+				E0C324307CEC494A9E58C24C /* libz.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -185,6 +201,12 @@
 				3762F90748F946288A103291 /* CDVCamera.h */,
 				07113909072E4748AFC05785 /* CDVJpegHeaderWriter.h */,
 				333A38B240B344A08A66F1F1 /* CDVExif.h */,
+				9FBDDC85B4394476B81B9555 /* CDVDevice.m */,
+				BA1CA9EDACB14BB0975EC4EF /* CDVDevice.h */,
+				529E190E71D944BBA4AB4012 /* APPBackgroundMode.m */,
+				FF0271A03B4F4B67BCD99DAB /* APPMethodMagic.m */,
+				C3F1E5C7B8364353A063B6E2 /* APPBackgroundMode.h */,
+				917C6068279948F79DD2C914 /* APPMethodMagic.h */,
 			);
 			name = Plugins;
 			path = "Bitacora cityexpress/Plugins";
@@ -268,6 +290,7 @@
 				3047A5141AB8059700498E2A /* build.xcconfig in Resources */,
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				3047A5121AB8059700498E2A /* build-debug.xcconfig in Resources */,
+				C5692804D248470B8BE9B110 /* appbeep.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +325,9 @@
 				FB4CB0F10E1D494D8AD83014 /* UIImage+CropScaleOrientation.m in Sources */,
 				B115F8FB4D064884B64A4451 /* CDVCamera.m in Sources */,
 				0528FB17072940C7A1B4D84C /* CDVJpegHeaderWriter.m in Sources */,
+				6C36894693F749398281A3F7 /* CDVDevice.m in Sources */,
+				AD248ED6A3734CFCB0C815E2 /* APPBackgroundMode.m in Sources */,
+				071A085656C447969391D306 /* APPMethodMagic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

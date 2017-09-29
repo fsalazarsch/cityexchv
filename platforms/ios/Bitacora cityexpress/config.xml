@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.cityexchv.cityexchv" version="4.6.9" versionCode="169" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.cityexchv.cityexchv" version="4.7.10" versionCode="200" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="AllowInlineMediaPlayback" value="false" />
     <preference name="BackupWebStorage" value="cloud" />
     <preference name="DisallowOverscroll" value="false" />
@@ -32,6 +32,12 @@
         <param name="ios-package" value="CDVCamera" />
     </feature>
     <preference name="CameraUsesGeolocation" value="false" />
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
+    <feature name="BackgroundMode">
+        <param name="ios-package" value="APPBackgroundMode" />
+    </feature>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <name>Bitacora cityexpress</name>
@@ -41,7 +47,7 @@
     <author email="fsalazar.sch@gmail.com" href="http://www.nullpointerex.com">
         Felipe Salazar Schlotterbeck
     </author>
-    <content src="www/index.html" />
+    <content src="index.html" />
     <icon src="www/res/icon/icon.png" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

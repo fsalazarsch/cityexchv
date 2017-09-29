@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.cityexchv.cityexchv" version="4.6.9" versionCode="169" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.cityexchv.cityexchv" version="4.7.10" versionCode="200" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Bitacora cityexpress</name>
     <description>
         Bitacora Elctronica para conductores de chv
@@ -7,7 +7,7 @@
     <author email="fsalazar.sch@gmail.com" href="http://www.nullpointerex.com">
         Felipe Salazar Schlotterbeck
     </author>
-    <content src="www/index.html" />
+    <content src="index.html" />
     <icon src="www/res/icon/icon.png" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

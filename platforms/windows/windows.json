@@ -26,6 +26,12 @@
         },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "Bitacora_cityex"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "Bitacora cityexpress"
+        },
+        "cordova-plugin-background-mode": {
+            "PACKAGE_NAME": "Bitacora cityexpress"
         }
     },
     "dependent_plugins": {},
@@ -68,6 +74,29 @@
             "pluginId": "cordova-plugin-camera",
             "merges": [
                 ""
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device/www/device.js",
+            "id": "cordova-plugin-device.device",
+            "pluginId": "cordova-plugin-device",
+            "clobbers": [
+                "device"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device/src/windows/DeviceProxy.js",
+            "id": "cordova-plugin-device.DeviceProxy",
+            "pluginId": "cordova-plugin-device",
+            "runs": true
+        },
+        {
+            "file": "plugins/cordova-plugin-background-mode/www/background-mode.js",
+            "id": "cordova-plugin-background-mode.BackgroundMode",
+            "pluginId": "cordova-plugin-background-mode",
+            "clobbers": [
+                "cordova.plugins.backgroundMode",
+                "plugin.backgroundMode"
             ]
         }
     ]
