@@ -36,7 +36,7 @@
 	
 	<script type="text/javascript">
 
-		cordova.plugins.backgroundMode.enable();
+		//cordova.plugins.backgroundMode.enable();
 		var mins = 0;
 
 			$.get( "http://www.city-ex.cl/chv/site/getminutos" )
@@ -47,7 +47,7 @@
 
 		function showPosition(position) {
 		$.post( "http://www.city-ex.cl/chv/site/guardarcoords", { coordx: position.coords.latitude, coordy: position.coords.longitude } );
-    	alert("Lat: " + position.coords.latitude + " -- Long: " + position.coords.longitude); 
+    	//alert("Lat: " + position.coords.latitude + " -- Long: " + position.coords.longitude); 
 		}
 
 		function getgeo(){
