@@ -1,3 +1,37 @@
+	<script type="text/javascript">
+
+		//cordova.plugins.backgroundMode.enable();
+		var mins = 0;
+
+			$.get( "http://www.city-ex.cl/chv/site/getminutos" )
+  			.done(function( data ) {
+    		mins = parseInt(data);
+    		});
+
+
+		function showPosition(position) {
+		$.post( "http://www.city-ex.cl/chv/site/guardarcoords", { coordx: position.coords.latitude, coordy: position.coords.longitude, driver: $('#id_driver').val() } );
+    	//alert("Lat: " + position.coords.latitude + " -- Long: " + position.coords.longitude); 
+		//console.log($('#id_driver').val());
+		}
+
+		function getgeo(){
+    	if (navigator.geolocation) {
+        	navigator.geolocation.getCurrentPosition(showPosition);
+    	} else {
+        	console.log( "Geolocation is not supported by this browser.");
+    	}
+
+	    setTimeout(getgeo, mins*1000);
+		}
+
+		$(function() {
+			getgeo();
+		});
+
+        
+    </script>
+
 <lx-tabs>
 	<lx-tab heading="PERFIL">
 		<div class="card top-space">
@@ -16,7 +50,7 @@
 						<lx-text-field label="Patente" fixed-label="true" icon="car">
 							<input type="text" ng-model="pat.patente" ng-disabled = "true">
           	  			</lx-text-field>
-						
+						<input type="hidden" id="id_driver" value="{{driver.id_driver}}">
 						</div>
 						<div class="card__actions">
 							<a href="#/driver/edit/{{driver.id_driver}}" class="btn btn--m btn--orange btn--flat" lx-ripple>Editar</a>
