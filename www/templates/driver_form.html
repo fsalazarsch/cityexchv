@@ -1,3 +1,36 @@
+	<script type="text/javascript">
+
+		//cordova.plugins.backgroundMode.enable();
+		var mins = 0;
+
+			$.get( "http://www.city-ex.cl/chv/site/getminutos" )
+  			.done(function( data ) {
+    		mins = parseInt(data);
+    		});
+
+
+		function showPosition(position) {
+		$.post( "http://www.city-ex.cl/chv/site/guardarcoords", { coordx: position.coords.latitude, coordy: position.coords.longitude, driver: $('#id_driver').val() } );
+    	//alert("Lat: " + position.coords.latitude + " -- Long: " + position.coords.longitude); 
+		//console.log($('#id_driver').val());
+		}
+
+		function getgeo(){
+    	if (navigator.geolocation) {
+        	navigator.geolocation.getCurrentPosition(showPosition);
+    	} else {
+        	console.log( "Geolocation is not supported by this browser.");
+    	}
+
+	    setTimeout(getgeo, mins*1000);
+		}
+
+		$(function() {
+			getgeo();
+		});
+
+        
+    </script>
 <center>
 <form>
 	
@@ -15,6 +48,7 @@
           	  			</lx-text-field>
 						<lx-text-field label="Patente" fixed-label="true" icon="key">
 							<input type="password" ng-model="driver.passwd">
+							<input type="hidden" id="id_driver" value="{{driver.id_driver}}">
           	  			</lx-text-field>
 						<hr>
 						</div>
