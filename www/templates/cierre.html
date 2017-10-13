@@ -16,7 +16,7 @@
 
         }
 
-        function getgeo(){
+        function getgeo(count){
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
             //  alert(params);
@@ -25,16 +25,16 @@
         } else {
             console.log( "Geolocation is not supported by this browser.");
         }
-        //alert($('#cx').val());
+        if (count < 2)
         if( ($('#cx').val()=='') || ($('#cy').val()=='') || ($('#id_driver').val()=='') )
-        setTimeout(getgeo, 1000);
+        setTimeout(getgeo, 1000, count++);
         else
-        setTimeout(getgeo, mins*1000);
+        setTimeout(getgeo, mins*1000, count++);
         }
 
         $(function() {
 
-            getgeo();
+            getgeo(0);
         });
 
         </script>
