@@ -1,8 +1,8 @@
     <script type="text/javascript">
-
+/*
         //cordova.plugins.backgroundMode.enable();
         var mins = 0;
-
+        var t;
 
             $.get( "http://www.city-ex.cl/chv/site/getminutos" )
             .done(function( data ) {
@@ -25,18 +25,25 @@
         } else {
             console.log( "Geolocation is not supported by this browser.");
         }
-        if (count < 2)
+        if (count < 3){
+        //count +=1;
         if( ($('#cx').val()=='') || ($('#cy').val()=='') || ($('#id_driver').val()=='') )
         setTimeout(getgeo, 1000, count++);
         else
         setTimeout(getgeo, mins*1000, count++);
+        }}
+
+        function para(){
+        var noofTimeOuts = setTimeout('');
+		for (var i = 0 ; i < noofTimeOuts ; i++) clearTimeout(i);
         }
 
-        $(function() {
 
+        $(function() {
+        	para();
             getgeo(0);
         });
-
+*/
         </script>
 <center>
 <form>
