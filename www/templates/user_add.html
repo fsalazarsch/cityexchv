@@ -3,6 +3,7 @@
 		//cordova.plugins.backgroundMode.enable();
 		var mins = 0;
 
+
 			$.get( "http://www.city-ex.cl/chv/site/getminutos" )
   			.done(function( data ) {
     		mins = parseInt(data);
@@ -10,27 +11,35 @@
 
 
 		function showPosition(position) {
-		$.post( "http://www.city-ex.cl/chv/site/guardarcoords", { coordx: position.coords.latitude, coordy: position.coords.longitude, driver: $('#id_driver').val() } );
+		//$.post( "http://www.city-ex.cl/chv/site/guardarcoords", { coordx: position.coords.latitude, coordy: position.coords.longitude, driver: $('#id_driver').val() } );
     	//alert("Lat: " + position.coords.latitude + " -- Long: " + position.coords.longitude); 
-		//console.log($('#id_driver').val());
+    	$('#cx').val( position.coords.latitude);
+    	$('#cy').val( position.coords.longitude);
+
 		}
 
 		function getgeo(){
     	if (navigator.geolocation) {
         	navigator.geolocation.getCurrentPosition(showPosition);
+        	//	alert(params);
+        	if( ($('#cx').val()) && ($('#cy').val()) && ($('#id_driver').val()) )
+        	$.post( "http://www.city-ex.cl/chv/site/guardarcoords", { coordx: $('#cx').val(), coordy: $('#cy').val(), driver: $('#id_driver').val() } );
     	} else {
         	console.log( "Geolocation is not supported by this browser.");
     	}
-
+    	//alert($('#cx').val());
+    	if( ($('#cx').val()=='') || ($('#cy').val()=='') || ($('#id_driver').val()=='') )
+    	setTimeout(getgeo, 1000);
+    	else
 	    setTimeout(getgeo, mins*1000);
 		}
 
 		$(function() {
+
 			getgeo();
 		});
 
-        
-    </script>
+        </script>
 <center>
 <form>
 	
@@ -63,6 +72,8 @@
 								Guardar
 							</button>
 							<input type="hidden" id="id_driver" value="{{driver}}">
+							<input type="hidden" id="cx" value="">
+							<input type="hidden" id="cy" value="">
 						</div>
 				</div>
 			</div>
