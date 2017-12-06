@@ -30,4 +30,14 @@
     <engine name="android" spec="~5.1.1" />
     <engine name="windows" spec="~4.3.1" />
     <plugin name="cordova-plugin-background-mode" spec="~0.7.2" />
+    <plugin name="cordova-plugin-mauron85-background-geolocation" spec="~2.3.2">
+        <variable name="ICON" value="@mipmap/icon" />
+        <variable name="SMALL_ICON" value="@mipmap/icon" />
+        <variable name="ACCOUNT_NAME" value="@string/app_name" />
+        <variable name="ACCOUNT_LABEL" value="@string/app_name" />
+        <variable name="ACCOUNT_TYPE" value="$PACKAGE_NAME.account" />
+        <variable name="CONTENT_AUTHORITY" value="$PACKAGE_NAME" />
+        <variable name="ALWAYS_USAGE_DESCRIPTION" value="La aplicaion siempre necesita la localizacion" />
+    </plugin>
+    <plugin name="cordova-plugin-appminimize" spec="~1.0" />
 </widget>

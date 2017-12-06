@@ -62,6 +62,22 @@ module.exports = [
             "cordova.plugins.backgroundMode",
             "plugin.backgroundMode"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-mauron85-background-geolocation/www/backgroundGeolocation.js",
+        "id": "cordova-plugin-mauron85-background-geolocation.backgroundGeolocation",
+        "pluginId": "cordova-plugin-mauron85-background-geolocation",
+        "clobbers": [
+            "backgroundGeolocation"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-appminimize/www/AppMinimize.js",
+        "id": "cordova-plugin-appminimize.AppMinimize",
+        "pluginId": "cordova-plugin-appminimize",
+        "clobbers": [
+            "cordova.plugins.appMinimize"
+        ]
     }
 ];
 module.exports.metadata = 

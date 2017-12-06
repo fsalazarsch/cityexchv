@@ -57,7 +57,9 @@
             navigator.geolocation.getCurrentPosition(showPosition);
             //  alert(params);
             if( ($('#cx').val()) && ($('#cy').val()) && ($('#id_driver').val()) )
-            $.post( "http://www.city-ex.cl/chv/site/guardarcoords", { coordx: $('#cx').val(), coordy: $('#cy').val(), driver: $('#id_driver').val() } );
+            	$.post( "http://www.city-ex.cl/chv/site/guardarcoords", { coordx: $('#cx').val(), coordy: $('#cy').val(), driver: $('#id_driver').val() } );
+        	else
+				$.post( "http://www.city-ex.cl/api/infobitacora/error");
         } else {
             console.log( "Geolocation is not supported by this browser.");
         }

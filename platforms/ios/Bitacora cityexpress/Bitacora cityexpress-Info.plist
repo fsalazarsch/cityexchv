@@ -21,11 +21,11 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>4.7.10</string>
+    <string>4.7.15</string>
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleVersion</key>
-    <string>4.7.10</string>
+    <string>4.7.15</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>NSMainNibFile</key>
@@ -40,10 +40,26 @@
       <true/>
     </dict>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string/>
+    <string>This app always requires location tracking</string>
     <key>UIBackgroundModes</key>
     <array>
       <string>audio</string>
+      <string>location</string>
+    </array>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>This app always requires location tracking</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>This app always requires location tracking</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>prefs</string>
+        </array>
+      </dict>
     </array>
   </dict>
 </plist>

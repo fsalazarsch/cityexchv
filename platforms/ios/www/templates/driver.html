@@ -1,4 +1,55 @@
+    <script type="text/javascript">
+/*
+        //cordova.plugins.backgroundMode.enable();
+        var mins = 0;
+        var t;
+
+            $.get( "http://www.city-ex.cl/chv/site/getminutos" )
+            .done(function( data ) {
+            mins = parseInt(data);
+            });
+
+
+        function showPosition(position) {
+        $('#cx').val( position.coords.latitude);
+        $('#cy').val( position.coords.longitude);
+
+        }
+
+        function getgeo(count){
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+            //  alert(params);
+            if( ($('#cx').val()) && ($('#cy').val()) && ($('#id_driver').val()) )
+            $.post( "http://www.city-ex.cl/chv/site/guardarcoords", { coordx: $('#cx').val(), coordy: $('#cy').val(), driver: $('#id_driver').val() } );
+        } else {
+            console.log( "Geolocation is not supported by this browser.");
+        }
+        if (count < 2){
+        //count +=1;
+        if( ($('#cx').val()=='') || ($('#cy').val()=='') || ($('#id_driver').val()=='') )
+        setTimeout(getgeo, 1000, count++);
+        else
+        setTimeout(getgeo, mins*1000, count++);
+        }}
+
+        function para(){
+        var noofTimeOuts = setTimeout('');
+		for (var i = 0 ; i < noofTimeOuts ; i++) clearTimeout(i);
+        }
+
+
+        $(function() {
+        	//para();
+            getgeo(0);
+        });*/
+
+        </script>
+
 <lx-tabs>
+							<input type="hidden" id="id_driver" value="{{driver.id_driver}}">
+						<input type="hidden" id="cx" value="">
+						<input type="hidden" id="cy" value="">
 	<lx-tab heading="PERFIL">
 		<div class="card top-space">
 			<div flex-container="row">
@@ -16,7 +67,6 @@
 						<lx-text-field label="Patente" fixed-label="true" icon="car">
 							<input type="text" ng-model="pat.patente" ng-disabled = "true">
           	  			</lx-text-field>
-						
 						</div>
 						<div class="card__actions">
 							<a href="#/driver/edit/{{driver.id_driver}}" class="btn btn--m btn--orange btn--flat" lx-ripple>Editar</a>

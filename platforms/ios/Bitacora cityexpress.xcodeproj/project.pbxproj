@@ -26,6 +26,25 @@
 		AD248ED6A3734CFCB0C815E2 /* APPBackgroundMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 529E190E71D944BBA4AB4012 /* APPBackgroundMode.m */; };
 		071A085656C447969391D306 /* APPMethodMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = FF0271A03B4F4B67BCD99DAB /* APPMethodMagic.m */; };
 		C5692804D248470B8BE9B110 /* appbeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 944C0A78497B4C0FB0D52611 /* appbeep.wav */; };
+		D3C5971011E0486CA657C6ED /* BackgroundTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCD7A565FCA4C1F8CC43616 /* BackgroundTaskManager.m */; };
+		B471E2B2109B4E9F96A3359D /* CDVBackgroundGeolocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E82C6F5E7DAD48978D57E9C5 /* CDVBackgroundGeolocation.m */; };
+		FE5EA2B01812458FB20F3176 /* CocoaLumberjack.m in Sources */ = {isa = PBXBuildFile; fileRef = 413986F2C43A439CA87A3312 /* CocoaLumberjack.m */; };
+		76CB4D0CDCCC4F529E7C47BA /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 5691F6BF63C642E0912866AF /* Config.m */; };
+		9E3AEFB22A10407D84A6B86D /* FMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7B1721A748408B87D8E40E /* FMDB.m */; };
+		BF0129C5F6AA430EA37552AC /* FMDBLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB6DC1323843C59E14C0CB /* FMDBLogger.m */; };
+		06EEDE57497A4959A8B01521 /* GeolocationOpenHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F66C83FD6B24D658682E8B5 /* GeolocationOpenHelper.m */; };
+		5F67FFFCD5EE4D009F2172E2 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E0DA32061F4E77B621779C /* Location.m */; };
+		B518E0F4571640289E19C67F /* LocationContract.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D7443E5E74F538B358C02 /* LocationContract.m */; };
+		42138B05914346E895A976C3 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C584B1BB475C4A5E8E7F25D9 /* LocationManager.m */; };
+		0061FEE964BA46898FEA6285 /* LocationUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BFDBDD403948A88613EB05 /* LocationUploader.m */; };
+		5F2ADF70B5AA43C48C252D06 /* Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D708A88C47A4E4481F2030E /* Logging.m */; };
+		51DBC80798804ADF8D54DF6E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = F00ED153226D4497BAABE36F /* Reachability.m */; };
+		33054F8695B34B69935699FA /* SQLiteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2788863C804EDDB9671140 /* SQLiteHelper.m */; };
+		A3A018E738AB43479D0C2582 /* SQLiteLocationDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E0FF2634484063909F25F5 /* SQLiteLocationDAO.m */; };
+		8B6B807FEDD04D2DB1545A03 /* SQLiteOpenHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8255501A222C4F47B897C5E8 /* SQLiteOpenHelper.m */; };
+		E7734C9486654BCA9A47096B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 876387CA9D0648C1BB0B1529 /* SystemConfiguration.framework */; };
+		01C27B504A274714ACD666E1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7537E48EACCA4FEDB8350524 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		51394EC031524CE2A3BF81EB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9B8952E71C429493B7252F /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +102,41 @@
 		C3F1E5C7B8364353A063B6E2 /* APPBackgroundMode.h */ = {isa = PBXFileReference; name = "APPBackgroundMode.h"; path = "cordova-plugin-background-mode/APPBackgroundMode.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		917C6068279948F79DD2C914 /* APPMethodMagic.h */ = {isa = PBXFileReference; name = "APPMethodMagic.h"; path = "cordova-plugin-background-mode/APPMethodMagic.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		944C0A78497B4C0FB0D52611 /* appbeep.wav */ = {isa = PBXFileReference; name = "appbeep.wav"; path = "appbeep.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7DCD7A565FCA4C1F8CC43616 /* BackgroundTaskManager.m */ = {isa = PBXFileReference; name = "BackgroundTaskManager.m"; path = "cordova-plugin-mauron85-background-geolocation/BackgroundTaskManager.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		E82C6F5E7DAD48978D57E9C5 /* CDVBackgroundGeolocation.m */ = {isa = PBXFileReference; name = "CDVBackgroundGeolocation.m"; path = "cordova-plugin-mauron85-background-geolocation/CDVBackgroundGeolocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		413986F2C43A439CA87A3312 /* CocoaLumberjack.m */ = {isa = PBXFileReference; name = "CocoaLumberjack.m"; path = "cordova-plugin-mauron85-background-geolocation/CocoaLumberjack.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		5691F6BF63C642E0912866AF /* Config.m */ = {isa = PBXFileReference; name = "Config.m"; path = "cordova-plugin-mauron85-background-geolocation/Config.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		8C7B1721A748408B87D8E40E /* FMDB.m */ = {isa = PBXFileReference; name = "FMDB.m"; path = "cordova-plugin-mauron85-background-geolocation/FMDB.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		63DB6DC1323843C59E14C0CB /* FMDBLogger.m */ = {isa = PBXFileReference; name = "FMDBLogger.m"; path = "cordova-plugin-mauron85-background-geolocation/FMDBLogger.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		4F66C83FD6B24D658682E8B5 /* GeolocationOpenHelper.m */ = {isa = PBXFileReference; name = "GeolocationOpenHelper.m"; path = "cordova-plugin-mauron85-background-geolocation/GeolocationOpenHelper.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		D4E0DA32061F4E77B621779C /* Location.m */ = {isa = PBXFileReference; name = "Location.m"; path = "cordova-plugin-mauron85-background-geolocation/Location.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		2F0D7443E5E74F538B358C02 /* LocationContract.m */ = {isa = PBXFileReference; name = "LocationContract.m"; path = "cordova-plugin-mauron85-background-geolocation/LocationContract.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		C584B1BB475C4A5E8E7F25D9 /* LocationManager.m */ = {isa = PBXFileReference; name = "LocationManager.m"; path = "cordova-plugin-mauron85-background-geolocation/LocationManager.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		F0BFDBDD403948A88613EB05 /* LocationUploader.m */ = {isa = PBXFileReference; name = "LocationUploader.m"; path = "cordova-plugin-mauron85-background-geolocation/LocationUploader.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		0D708A88C47A4E4481F2030E /* Logging.m */ = {isa = PBXFileReference; name = "Logging.m"; path = "cordova-plugin-mauron85-background-geolocation/Logging.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		F00ED153226D4497BAABE36F /* Reachability.m */ = {isa = PBXFileReference; name = "Reachability.m"; path = "cordova-plugin-mauron85-background-geolocation/Reachability.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		2B2788863C804EDDB9671140 /* SQLiteHelper.m */ = {isa = PBXFileReference; name = "SQLiteHelper.m"; path = "cordova-plugin-mauron85-background-geolocation/SQLiteHelper.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		D5E0FF2634484063909F25F5 /* SQLiteLocationDAO.m */ = {isa = PBXFileReference; name = "SQLiteLocationDAO.m"; path = "cordova-plugin-mauron85-background-geolocation/SQLiteLocationDAO.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		8255501A222C4F47B897C5E8 /* SQLiteOpenHelper.m */ = {isa = PBXFileReference; name = "SQLiteOpenHelper.m"; path = "cordova-plugin-mauron85-background-geolocation/SQLiteOpenHelper.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		327C9386B48E43F7AE969EEC /* BackgroundTaskManager.h */ = {isa = PBXFileReference; name = "BackgroundTaskManager.h"; path = "cordova-plugin-mauron85-background-geolocation/BackgroundTaskManager.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		AEA92D167D0F4188A7FA0B22 /* CDVBackgroundGeolocation.h */ = {isa = PBXFileReference; name = "CDVBackgroundGeolocation.h"; path = "cordova-plugin-mauron85-background-geolocation/CDVBackgroundGeolocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		A376D2C6AEF1481DAF16EAC4 /* CocoaLumberjack.h */ = {isa = PBXFileReference; name = "CocoaLumberjack.h"; path = "cordova-plugin-mauron85-background-geolocation/CocoaLumberjack.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		0A10B159EAC743919B730C13 /* Config.h */ = {isa = PBXFileReference; name = "Config.h"; path = "cordova-plugin-mauron85-background-geolocation/Config.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		9B1DAEF278014139AA85A5B2 /* FMDB.h */ = {isa = PBXFileReference; name = "FMDB.h"; path = "cordova-plugin-mauron85-background-geolocation/FMDB.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		5FA07A0E14454EFFA1AF17FB /* FMDBLogger.h */ = {isa = PBXFileReference; name = "FMDBLogger.h"; path = "cordova-plugin-mauron85-background-geolocation/FMDBLogger.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		C21BC9E95E024C99A748C3D6 /* GeolocationOpenHelper.h */ = {isa = PBXFileReference; name = "GeolocationOpenHelper.h"; path = "cordova-plugin-mauron85-background-geolocation/GeolocationOpenHelper.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		AB6AB8D199E9473FB9440D8B /* Location.h */ = {isa = PBXFileReference; name = "Location.h"; path = "cordova-plugin-mauron85-background-geolocation/Location.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		10D8728C63F642F287163D1A /* LocationContract.h */ = {isa = PBXFileReference; name = "LocationContract.h"; path = "cordova-plugin-mauron85-background-geolocation/LocationContract.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		B971182B6D924D70BCD7D014 /* LocationManager.h */ = {isa = PBXFileReference; name = "LocationManager.h"; path = "cordova-plugin-mauron85-background-geolocation/LocationManager.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		521D0B8A0AF7455DB0DF1C2D /* LocationUploader.h */ = {isa = PBXFileReference; name = "LocationUploader.h"; path = "cordova-plugin-mauron85-background-geolocation/LocationUploader.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		FA2BD88D09DE4CDCA086A4D6 /* Logging.h */ = {isa = PBXFileReference; name = "Logging.h"; path = "cordova-plugin-mauron85-background-geolocation/Logging.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		2C2ADA8F904B4FB580DD40E0 /* Reachability.h */ = {isa = PBXFileReference; name = "Reachability.h"; path = "cordova-plugin-mauron85-background-geolocation/Reachability.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		203736A9F1964F2CA1621821 /* SQLiteHelper.h */ = {isa = PBXFileReference; name = "SQLiteHelper.h"; path = "cordova-plugin-mauron85-background-geolocation/SQLiteHelper.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		51C64DDDB5A74786A93CA8A3 /* SQLiteLocationDAO.h */ = {isa = PBXFileReference; name = "SQLiteLocationDAO.h"; path = "cordova-plugin-mauron85-background-geolocation/SQLiteLocationDAO.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		F88DDE5EF76E4B50AC54A493 /* SQLiteOpenHelper.h */ = {isa = PBXFileReference; name = "SQLiteOpenHelper.h"; path = "cordova-plugin-mauron85-background-geolocation/SQLiteOpenHelper.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		876387CA9D0648C1BB0B1529 /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		7537E48EACCA4FEDB8350524 /* AudioToolbox.framework */ = {isa = PBXFileReference; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		5B9B8952E71C429493B7252F /* libsqlite3.dylib */ = {isa = PBXFileReference; name = "libsqlite3.dylib"; path = "usr/lib/libsqlite3.dylib"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = compiled.mach-o.dylib; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +149,9 @@
 				407CAF6D344A460AB58DB34B /* CoreLocation.framework in Frameworks */,
 				D4EB74F1BB224D52B8AA32CF /* AVFoundation.framework in Frameworks */,
 				3DB7253094AF43BB9BB82C3B /* libz.tbd in Resources */,
+				E7734C9486654BCA9A47096B /* SystemConfiguration.framework in Frameworks */,
+				01C27B504A274714ACD666E1 /* AudioToolbox.framework in Frameworks */,
+				51394EC031524CE2A3BF81EB /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +226,9 @@
 				83728AC59BE6453C852BDD8C /* CoreLocation.framework */,
 				0A28023EB487447E8C7E498D /* AVFoundation.framework */,
 				E0C324307CEC494A9E58C24C /* libz.tbd */,
+				876387CA9D0648C1BB0B1529 /* SystemConfiguration.framework */,
+				7537E48EACCA4FEDB8350524 /* AudioToolbox.framework */,
+				5B9B8952E71C429493B7252F /* libsqlite3.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -207,6 +267,38 @@
 				FF0271A03B4F4B67BCD99DAB /* APPMethodMagic.m */,
 				C3F1E5C7B8364353A063B6E2 /* APPBackgroundMode.h */,
 				917C6068279948F79DD2C914 /* APPMethodMagic.h */,
+				7DCD7A565FCA4C1F8CC43616 /* BackgroundTaskManager.m */,
+				E82C6F5E7DAD48978D57E9C5 /* CDVBackgroundGeolocation.m */,
+				413986F2C43A439CA87A3312 /* CocoaLumberjack.m */,
+				5691F6BF63C642E0912866AF /* Config.m */,
+				8C7B1721A748408B87D8E40E /* FMDB.m */,
+				63DB6DC1323843C59E14C0CB /* FMDBLogger.m */,
+				4F66C83FD6B24D658682E8B5 /* GeolocationOpenHelper.m */,
+				D4E0DA32061F4E77B621779C /* Location.m */,
+				2F0D7443E5E74F538B358C02 /* LocationContract.m */,
+				C584B1BB475C4A5E8E7F25D9 /* LocationManager.m */,
+				F0BFDBDD403948A88613EB05 /* LocationUploader.m */,
+				0D708A88C47A4E4481F2030E /* Logging.m */,
+				F00ED153226D4497BAABE36F /* Reachability.m */,
+				2B2788863C804EDDB9671140 /* SQLiteHelper.m */,
+				D5E0FF2634484063909F25F5 /* SQLiteLocationDAO.m */,
+				8255501A222C4F47B897C5E8 /* SQLiteOpenHelper.m */,
+				327C9386B48E43F7AE969EEC /* BackgroundTaskManager.h */,
+				AEA92D167D0F4188A7FA0B22 /* CDVBackgroundGeolocation.h */,
+				A376D2C6AEF1481DAF16EAC4 /* CocoaLumberjack.h */,
+				0A10B159EAC743919B730C13 /* Config.h */,
+				9B1DAEF278014139AA85A5B2 /* FMDB.h */,
+				5FA07A0E14454EFFA1AF17FB /* FMDBLogger.h */,
+				C21BC9E95E024C99A748C3D6 /* GeolocationOpenHelper.h */,
+				AB6AB8D199E9473FB9440D8B /* Location.h */,
+				10D8728C63F642F287163D1A /* LocationContract.h */,
+				B971182B6D924D70BCD7D014 /* LocationManager.h */,
+				521D0B8A0AF7455DB0DF1C2D /* LocationUploader.h */,
+				FA2BD88D09DE4CDCA086A4D6 /* Logging.h */,
+				2C2ADA8F904B4FB580DD40E0 /* Reachability.h */,
+				203736A9F1964F2CA1621821 /* SQLiteHelper.h */,
+				51C64DDDB5A74786A93CA8A3 /* SQLiteLocationDAO.h */,
+				F88DDE5EF76E4B50AC54A493 /* SQLiteOpenHelper.h */,
 			);
 			name = Plugins;
 			path = "Bitacora cityexpress/Plugins";
@@ -328,6 +420,22 @@
 				6C36894693F749398281A3F7 /* CDVDevice.m in Sources */,
 				AD248ED6A3734CFCB0C815E2 /* APPBackgroundMode.m in Sources */,
 				071A085656C447969391D306 /* APPMethodMagic.m in Sources */,
+				D3C5971011E0486CA657C6ED /* BackgroundTaskManager.m in Sources */,
+				B471E2B2109B4E9F96A3359D /* CDVBackgroundGeolocation.m in Sources */,
+				FE5EA2B01812458FB20F3176 /* CocoaLumberjack.m in Sources */,
+				76CB4D0CDCCC4F529E7C47BA /* Config.m in Sources */,
+				9E3AEFB22A10407D84A6B86D /* FMDB.m in Sources */,
+				BF0129C5F6AA430EA37552AC /* FMDBLogger.m in Sources */,
+				06EEDE57497A4959A8B01521 /* GeolocationOpenHelper.m in Sources */,
+				5F67FFFCD5EE4D009F2172E2 /* Location.m in Sources */,
+				B518E0F4571640289E19C67F /* LocationContract.m in Sources */,
+				42138B05914346E895A976C3 /* LocationManager.m in Sources */,
+				0061FEE964BA46898FEA6285 /* LocationUploader.m in Sources */,
+				5F2ADF70B5AA43C48C252D06 /* Logging.m in Sources */,
+				51DBC80798804ADF8D54DF6E /* Reachability.m in Sources */,
+				33054F8695B34B69935699FA /* SQLiteHelper.m in Sources */,
+				A3A018E738AB43479D0C2582 /* SQLiteLocationDAO.m in Sources */,
+				8B6B807FEDD04D2DB1545A03 /* SQLiteOpenHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

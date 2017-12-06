@@ -63,7 +63,8 @@ angular.module("App")
 
 
 .controller("DriverController", function($scope, ServiciobusResource, DriverResource, ServiciostrResource, PatenteResource, ProgramaResource, Folio2Resource, $routeParams, $location, $filter, TempcierreResource){
-	
+	//hecho el seguimiento
+
 	$scope.title = "Editar Post";
 	$scope.folios2 = Folio2Resource.query();
 	$scope.folios3 = ServiciobusResource.query();
@@ -113,6 +114,7 @@ angular.module("App")
 		$scope.fechap4 = $filter('date')($scope.fechap4, 'yyyy-MM-dd');
 	});
 
+	//$interval(increaseCounter, 10000* parseInt(mins[0])); 
 })
 
 .controller("ServicioController", function($scope, DriverResource, ServiciosResource, FolioResource, ProgramaResource, UserResource, $routeParams, $location, $filter, LxNotificationService, tablas, $http){
@@ -957,7 +959,7 @@ angular.module("App")
 	
 	$scope.centrocostos = ProgramaResource.query();
 	$scope.title= "Agregar Usuario al cierre";
-	
+	$scope.driver = $routeParams.id;
 	$scope.selects = { centrocosto: undefined};
 
 			$scope.fechap3 = $filter('date')(new Date(), 'yyyy-MM-dd');
@@ -1015,7 +1017,8 @@ angular.module("App")
 	
 })
 
-.controller("ServiciobusController", function($scope, $resource, $routeParams, $location, $http, $filter, ServiciobusResource, LxNotificationService){
+.controller("ServiciobusController", function($scope, $resource, DriverResource, $routeParams, $location, $http, $filter, ServiciobusResource, LxNotificationService){
+	$scope.driver = ServiciobusResource.get({id: $routeParams.id});
 	$scope.serv = {
 		};
 			
