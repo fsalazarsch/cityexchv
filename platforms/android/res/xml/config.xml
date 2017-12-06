@@ -22,6 +22,9 @@
     <feature name="AppMinimize">
         <param name="android-package" value="tomloprod.AppMinimize" />
     </feature>
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
+    </feature>
     <allow-intent href="market:*" />
     <name>Bitacora cityexpress</name>
     <description>

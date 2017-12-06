@@ -45,6 +45,7 @@
 		E7734C9486654BCA9A47096B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 876387CA9D0648C1BB0B1529 /* SystemConfiguration.framework */; };
 		01C27B504A274714ACD666E1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7537E48EACCA4FEDB8350524 /* AudioToolbox.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		51394EC031524CE2A3BF81EB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B9B8952E71C429493B7252F /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4027870D85AF4AFC9A563994 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 14ABA4480DAE4628BA758BDD /* CDVLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,8 @@
 		876387CA9D0648C1BB0B1529 /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		7537E48EACCA4FEDB8350524 /* AudioToolbox.framework */ = {isa = PBXFileReference; name = "AudioToolbox.framework"; path = "System/Library/Frameworks/AudioToolbox.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		5B9B8952E71C429493B7252F /* libsqlite3.dylib */ = {isa = PBXFileReference; name = "libsqlite3.dylib"; path = "usr/lib/libsqlite3.dylib"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = compiled.mach-o.dylib; explicitFileType = undefined; includeInIndex = 0; };
+		14ABA4480DAE4628BA758BDD /* CDVLocation.m */ = {isa = PBXFileReference; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		2BE81D7977EE483FAAE345E1 /* CDVLocation.h */ = {isa = PBXFileReference; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +302,8 @@
 				203736A9F1964F2CA1621821 /* SQLiteHelper.h */,
 				51C64DDDB5A74786A93CA8A3 /* SQLiteLocationDAO.h */,
 				F88DDE5EF76E4B50AC54A493 /* SQLiteOpenHelper.h */,
+				14ABA4480DAE4628BA758BDD /* CDVLocation.m */,
+				2BE81D7977EE483FAAE345E1 /* CDVLocation.h */,
 			);
 			name = Plugins;
 			path = "Bitacora cityexpress/Plugins";
@@ -436,6 +441,7 @@
 				33054F8695B34B69935699FA /* SQLiteHelper.m in Sources */,
 				A3A018E738AB43479D0C2582 /* SQLiteLocationDAO.m in Sources */,
 				8B6B807FEDD04D2DB1545A03 /* SQLiteOpenHelper.m in Sources */,
+				4027870D85AF4AFC9A563994 /* CDVLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

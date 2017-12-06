@@ -21,6 +21,9 @@
     },
     "cordova-plugin-appminimize": {
       "PACKAGE_NAME": "Bitacora cityexpress"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "Bitacora cityexpress"
     }
   },
   "dependent_plugins": {

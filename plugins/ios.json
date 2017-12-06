@@ -22,6 +22,10 @@
     },
     "cordova-plugin-appminimize": {
       "PACKAGE_NAME": "com.cityexchv.cityexchv"
+    },
+    "cordova-plugin-geolocation": {
+      "GEOLOCATION_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "com.cityexchv.cityexchv"
     }
   },
   "dependent_plugins": {

@@ -61,6 +61,18 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.appMinimize"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+        "id": "cordova-plugin-geolocation.geolocation",
+        "clobbers": [
+            "navigator.geolocation"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+        "id": "cordova-plugin-geolocation.PositionError",
+        "runs": true
     }
 ];
 module.exports.metadata = 
@@ -72,7 +84,8 @@ module.exports.metadata =
     "cordova-plugin-device": "1.1.6",
     "cordova-plugin-background-mode": "0.7.2",
     "cordova-plugin-mauron85-background-geolocation": "2.3.2",
-    "cordova-plugin-appminimize": "1.0"
+    "cordova-plugin-appminimize": "1.0",
+    "cordova-plugin-geolocation": "2.4.3"
 };
 // BOTTOM OF METADATA
 });
