@@ -2,7 +2,7 @@
 	<div class="card top-space">
 		<div class="p+ pt0">
 			<h1>{{title}}</h1>
-			<index type="hidden" ng-model='id_driver'>
+			<input type="hidden" id='id_driver'>
 			<div flex-container ="row">
 			<lx-select  placeholder="Seleccione nombre conductor" choices="drivers" ng-model="driver.driver" id={{cont}} min-length="5" ng-change= "update()" allow-clear="true">
             <lx-select-selected>
