@@ -86,62 +86,64 @@ angular.module("App")
 
 
 .factory("localtime", function($http) {
-  return $http.get('http://www.city-ex.cl/chv/site/getlocal');
+  return $http.get('https://www.city-ex.cl/chv/site/getlocal');
 })
 
 //crea base de datos.
 .factory("db", function(){
-	return openDatabase('dblocal', '1', 'base de datos local', 2 * 1024 * 1024);
+    return openDatabase('dblocal', '1', 'base de datos local', 2 * 1024 * 1024);
 })
 
 //crea tablas
 .factory('tablas', function ($q, db){
-	return{
-		crearTabla: function (nombretabla, parametros){
-			db.transaction(function (tx){
-				tx.executeSql("CREATE TABLE IF NOT EXISTS "+nombretabla+" ("+parametros+")");
-			})
-		},
-		selecciona: function (nombretabla, select, where, cb){
-			db.transaction(function(tx){
-				tx.executeSql("SELECT "+select+" from '"+nombretabla+"' WHERE "+where, [], function(tx, results){
-					console.log("SELECT "+select+" from "+nombretabla+" WHERE "+where);
-					var resultados=[];
-					for(var j=0; j<results.rows.length; j++){
-						resultados.push(results.rows.item(j));
-					}
-					cb(resultados);
-				});
-			});
-		},
-		modcampo: function (nombretabla, campo, value, id){
-			db.transaction(function(tx){
-				var sql  = 'UPDATE '+nombretabla+' SET '+campo+'='+value+' WHERE id_servicio = "'+id+'";'; 
-				console.log(sql);
-				tx.executeSql(sql);
-			});
-		},
-		elimina: function (nombretabla){
-			db.transaction(function (tx){
-				tx.executeSql("DELETE FROM '"+nombretabla+"'");
-			})
-		},
-		insertar: function (nombretabla, campos, values){
-			db.transaction(function(tx){
-				tx.executeSql("INSERT INTO "+nombretabla+" ("+campos+") VALUES ("+values+");");
-			});
-		},
-		modificar: function (nombretabla, campos, values, id){
-			db.transaction(function(tx){
-				var strsql = '';
-				for(var i=0; i<campos.length; i++) { //campos y values deben tener un mismo length
-					strsql += campos[i]+' = "'+values[i]+'", ';
-				}
-			
-				strsql = strsql.substring(0, strsql.length-2); //quitamos los ultimos ', '
-				strsql = 'UPDATE '+nombretabla+' SET '+strsql+' WHERE id = "'+id+'";'; 
-				tx.executeSql(strsql);
-			});
-		}
-	}
+    return{
+        crearTabla: function (nombretabla, parametros){
+            db.transaction(function (tx){
+                console.log("CREATE TABLE IF NOT EXISTS "+nombretabla+" ("+parametros+")");
+                tx.executeSql("CREATE TABLE IF NOT EXISTS "+nombretabla+" ("+parametros+")");
+            })
+        },
+        selecciona: function (nombretabla, select, where, cb){
+            db.transaction(function(tx){
+                tx.executeSql("SELECT "+select+" from '"+nombretabla+"' WHERE "+where, [], function(tx, results){
+                    console.log("SELECT "+select+" from "+nombretabla+" WHERE "+where);
+                    var resultados=[];
+                    for(var j=0; j<results.rows.length; j++){
+                        resultados.push(results.rows.item(j));
+                    }
+                    cb(resultados);
+                });
+            });
+        },
+        modcampo: function (nombretabla, campo, value, id){
+            db.transaction(function(tx){
+                var sql  = 'UPDATE '+nombretabla+' SET '+campo+'='+value+' WHERE id_servicio = "'+id+'";'; 
+                console.log(sql);
+                tx.executeSql(sql);
+            });
+        },
+        elimina: function (nombretabla){
+            db.transaction(function (tx){
+                tx.executeSql("DELETE FROM '"+nombretabla+"'");
+            })
+        },
+        insertar: function (nombretabla, campos, values){
+            db.transaction(function(tx){
+                console.log("INSERT INTO "+nombretabla+" ("+campos+") VALUES ("+values+");");
+                tx.executeSql("INSERT INTO "+nombretabla+" ("+campos+") VALUES ("+values+");");
+            });
+        },
+        modificar: function (nombretabla, campos, values, id){
+            db.transaction(function(tx){
+                var strsql = '';
+                for(var i=0; i<campos.length; i++) { //campos y values deben tener un mismo length
+                    strsql += campos[i]+' = "'+values[i]+'", ';
+                }
+            
+                strsql = strsql.substring(0, strsql.length-2); //quitamos los ultimos ', '
+                strsql = 'UPDATE '+nombretabla+' SET '+strsql+' WHERE id = "'+id+'";'; 
+                tx.executeSql(strsql);
+            });
+        }
+    }
 })

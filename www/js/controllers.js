@@ -2,16 +2,32 @@ angular.module("App")
 
 .controller("MainController", function($scope, $resource, $routeParams, DriverResource, $resource, $location, LxNotificationService, tablas, localtime){
 	$scope.driver = { driver: undefined};
-	
+	$scope.opc = undefined;
 
 	
-	tablas.crearTabla('tbl_folio', 'id_servicio unique,  hr_inicio text, km_inicio text, lugar_salida text, hr_termino text, km_termino text, lugar_llegada text, calidad number, desc_calidad text, coord_x text, coord_y text, tiempo_real text, flag number');
-	tablas.crearTabla('tbl_folio2', 'id_servicio unique, hr_inicio text, km_inicio text, lugar_salida text, hr_termino text, km_termino text, pasajero text, calidad number, desc_calidad text, coord_x text, coord_y text, tiempo_real text, flag number');
+	//tablas.crearTabla('tbl_folio', 'id_servicio unique,  hr_inicio text, km_inicio text, lugar_salida text, hr_termino text, km_termino text, lugar_llegada text, calidad number, desc_calidad text, coord_x text, coord_y text, tiempo_real text, flag number');
+	//tablas.crearTabla('tbl_folio2', 'id_servicio unique, hr_inicio text, km_inicio text, lugar_salida text, hr_termino text, km_termino text, pasajero text, calidad number, desc_calidad text, coord_x text, coord_y text, tiempo_real text, flag number');
 	
-	tablas.crearTabla('tbl_servicio', 'id_servicio unique, peaje number, estacionamiento number, tag number, km_add number, contacto number, observacion text, visado number, flag number');
-	tablas.crearTabla('tbl_cierre', 'id_servicio unique, peaje number, estacionamiento number, tag number, km_add number, observacion text, flag number');
+//	tablas.crearTabla('tbl_servicio', 'id_servicio unique, peaje number, estacionamiento number, tag number, km_add number, contacto number, observacion text, visado number, flag number');
+//	tablas.crearTabla('tbl_cierre', 'id_servicio unique, peaje number, estacionamiento number, tag number, km_add number, observacion text, flag number');
 	
+	//  $scope.sizes = [ {code: 1, name: 'n1'}, {code: 2, name: 'n2'}];
+	//	$scope.cambioresource = function() {
+	//	console.log($scope.item.code, $scope.item.name)
+	//}
+
 	
+	cb = function(item){
+			 if(item.length > 0){//no vacio
+				 if( item[0].id_driver){
+				 $scope.id_driver = item[0].id_driver;
+				 $location.path('/driver/'+item[0].id_driver);
+				//alert('El id es '+item[0].id_driver);
+				}}}
+
+	tablas.selecciona('tbl_login', 'id_driver', '1', cb);
+	
+
 	$scope.drivers = DriverResource.query();
 	$scope.title= "Login";
 	
@@ -29,6 +45,11 @@ angular.module("App")
 		$scope.update = function(){
 			$scope.driver.driver= parseInt($scope.drivers[0].id_driver);
 		}
+		
+		$scope.logIt=function(){
+			alert($scope.nivel);
+			}
+		
 		
 
 		x = DriverResource.query(function (response) 
@@ -62,9 +83,12 @@ angular.module("App")
 })
 
 
-.controller("DriverController", function($scope, ServiciobusResource, DriverResource, ServiciostrResource, PatenteResource, ProgramaResource, Folio2Resource, $routeParams, $location, $filter, TempcierreResource){
+.controller("DriverController", function($scope, ServiciobusResource, DriverResource, ServiciostrResource, PatenteResource, ProgramaResource, Folio2Resource, $routeParams, $location, $filter, TempcierreResource, tablas){
 	//hecho el seguimiento
-
+	tablas.crearTabla('tbl_login', 'id_driver unique');
+	//tablas.crearTabla('tbl_login', 'id_user unique');	
+	tablas.insertar('tbl_login', 'id_driver', $routeParams.id);
+	
 	$scope.title = "Editar Post";
 	$scope.folios2 = Folio2Resource.query();
 	$scope.folios3 = ServiciobusResource.query();
@@ -117,7 +141,7 @@ angular.module("App")
 	//$interval(increaseCounter, 10000* parseInt(mins[0])); 
 })
 
-.controller("ServicioController", function($scope, DriverResource, ServiciosResource, FolioResource, ProgramaResource, UserResource, $routeParams, $location, $filter, LxNotificationService, tablas, $http){
+.controller("ServicioController", function($scope, DriverResource, ServiciosResource, FolioResource, ProgramaResource, UserResource, $routeParams, $location, $filter, LxNotificationService, $http){
 	$scope.folio = {
 		contacto: undefined,
 		};
@@ -181,7 +205,7 @@ angular.module("App")
 		}
 
 	
-	cb = function(item){
+	/*cb = function(item){
 		if(item.length > 0){//no vacio
 			if( item[0].id_servicio == $routeParams.id){
 				var hras = item[0].hr_inicio.split(';');
@@ -256,7 +280,7 @@ angular.module("App")
 		
 			}
 		}
-		else{ //vacio, sacando de la BDD
+		else{ *///vacio, sacando de la BDD
 			$scope.backservicio = FolioResource.get({id: $routeParams.id}).$promise.then(function(result){
 				$scope.backservicio = result;
 				//hora_inicio
@@ -324,11 +348,11 @@ angular.module("App")
 				$scope.cambiarcalidad($scope.folio.calidad);
 		 
 			});
-		}
-	}
+		//}
+	//}
 	//servicio
-	c = function(item){
-		if(item.length > 0){//no vacio
+	/*c = function(item){
+		if(item.length > 0){
 			if( item[0].id_servicio == $routeParams.id){
 				$scope.folio.peaje = item[0].peaje; 
 				$scope.folio.estacionamiento = item[0].estacionamiento; 
@@ -340,7 +364,7 @@ angular.module("App")
 				$scope.folio.observacion = '';
 			}
 		}
-		else{ //vacio
+		else{ *///vacio
 			$scope.backservicio = ServiciosResource.get({id: $routeParams.id}).$promise.then(function(result){
 				$scope.backservicio = result;
 				$scope.folio.peaje = parseInt(result.peaje); 
@@ -352,12 +376,12 @@ angular.module("App")
 				else
 				$scope.folio.observacion = '';
 			});
-		}
-	}
+		//}
+	//}
 	
 	
-	tablas.selecciona('tbl_folio', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', cb);
-	tablas.selecciona('tbl_servicio', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', c);
+	//tablas.selecciona('tbl_folio', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', cb);
+	//tablas.selecciona('tbl_servicio', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', c);
 		
 	$scope.title = "BITACORA DE SERVICIOS";
 
@@ -377,20 +401,15 @@ angular.module("App")
 
 		$scope.update = function(){
 			$scope.folio.contacto= parseInt($scope.users[0].id);
-//			$scope.folio.contacto= parseInt($scope.users[0].id);
 		}
 
 
 	});
 
-		
-		
-	//$scope.$watch('hr_inicio[0]', function() {
-	//$scope.folio.hr_inicio = $filter('date')($scope.hr_inicio, 'HH:mm:ss');
-	//});
+
 	
-	tablas.insertar('tbl_folio', 'id_servicio, hr_inicio, km_inicio, lugar_salida, hr_termino, km_termino, lugar_llegada, calidad, desc_calidad, coord_x, coord_y, tiempo_real, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"","","", ""');
-	tablas.insertar('tbl_servicio', 'id_servicio, peaje, estacionamiento, tag, km_add, observacion, contacto, visado, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"", "", "", ""');
+	//tablas.insertar('tbl_folio', 'id_servicio, hr_inicio, km_inicio, lugar_salida, hr_termino, km_termino, lugar_llegada, calidad, desc_calidad, coord_x, coord_y, tiempo_real, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"","","", ""');
+	//tablas.insertar('tbl_servicio', 'id_servicio, peaje, estacionamiento, tag, km_add, observacion, contacto, visado, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"", "", "", ""');
 	
 	
 	$scope.guardarfolio = function(){
@@ -464,35 +483,35 @@ angular.module("App")
 			}
 		}
 			 		
-		tablas.modcampo('tbl_folio', 'hr_inicio' , '"'+hi+'"', $routeParams.id);
-		tablas.modcampo('tbl_folio', 'hr_termino' , '"'+ht+'"', $routeParams.id);
-		tablas.modcampo('tbl_folio', 'km_inicio' , '"'+ki+'"', $routeParams.id);
-		tablas.modcampo('tbl_folio', 'km_termino' , '"'+kt+'"', $routeParams.id);
-		tablas.modcampo('tbl_folio', 'lugar_salida' , '"'+ls+'"', $routeParams.id);
-		tablas.modcampo('tbl_folio', 'lugar_llegada' , '"'+lle+'"', $routeParams.id);
+		//tablas.modcampo('tbl_folio', 'hr_inicio' , '"'+hi+'"', $routeParams.id);
+		//tablas.modcampo('tbl_folio', 'hr_termino' , '"'+ht+'"', $routeParams.id);
+		//tablas.modcampo('tbl_folio', 'km_inicio' , '"'+ki+'"', $routeParams.id);
+		//tablas.modcampo('tbl_folio', 'km_termino' , '"'+kt+'"', $routeParams.id);
+		//tablas.modcampo('tbl_folio', 'lugar_salida' , '"'+ls+'"', $routeParams.id);
+		//tablas.modcampo('tbl_folio', 'lugar_llegada' , '"'+lle+'"', $routeParams.id);
 
-		tablas.modcampo('tbl_folio', 'coord_x' , 'coord_x || "'+$scope.folio.coord_x+'; "', $routeParams.id);
-		tablas.modcampo('tbl_folio', 'coord_y' , 'coord_y || "'+$scope.folio.coord_y+'; "', $routeParams.id);
+//		tablas.modcampo('tbl_folio', 'coord_x' , 'coord_x || "'+$scope.folio.coord_x+'; "', $routeParams.id);
+//		tablas.modcampo('tbl_folio', 'coord_y' , 'coord_y || "'+$scope.folio.coord_y+'; "', $routeParams.id);
 		
-		$http.get("http://www.city-ex.cl/chv/site/getlocal").then(function(response) {
-			$scope.myWelcome = response.data;
-			tablas.modcampo('tbl_folio', 'tiempo_real' , 'tiempo_real || "'+response.data+'; "', $routeParams.id);
-		});
+//		$http.get("http://www.city-ex.cl/chv/site/getlocal").then(function(response) {
+//			$scope.myWelcome = response.data;
+//			tablas.modcampo('tbl_folio', 'tiempo_real' , 'tiempo_real || "'+response.data+'; "', $routeParams.id);
+//		});
 		
-		tablas.modcampo('tbl_folio', 'calidad' , '"'+$scope.folio.calidad+'"', $routeParams.id);
-		tablas.modcampo('tbl_folio', 'desc_calidad' , '"'+$scope.folio.desc_calidad+'"', $routeParams.id);
+//		tablas.modcampo('tbl_folio', 'calidad' , '"'+$scope.folio.calidad+'"', $routeParams.id);
+//		tablas.modcampo('tbl_folio', 'desc_calidad' , '"'+$scope.folio.desc_calidad+'"', $routeParams.id);
 		
-		tablas.modcampo('tbl_folio', 'flag' , '1' , $routeParams.id); //fue updateada
+//		tablas.modcampo('tbl_folio', 'flag' , '1' , $routeParams.id); //fue updateada
 		
-		tablas.modcampo('tbl_servicio', 'peaje' , $scope.folio.peaje, $routeParams.id);
-		tablas.modcampo('tbl_servicio', 'estacionamiento' , $scope.folio.estacionamiento, $routeParams.id);
-		tablas.modcampo('tbl_servicio', 'km_add' , $scope.folio.kms_add, $routeParams.id);
-		tablas.modcampo('tbl_servicio', 'tag' , $scope.folio.tag, $routeParams.id);
-		tablas.modcampo('tbl_servicio', 'observacion' , '"'+$scope.folio.observacion+'"', $routeParams.id);
+//		tablas.modcampo('tbl_servicio', 'peaje' , $scope.folio.peaje, $routeParams.id);
+//		tablas.modcampo('tbl_servicio', 'estacionamiento' , $scope.folio.estacionamiento, $routeParams.id);
+//		tablas.modcampo('tbl_servicio', 'km_add' , $scope.folio.kms_add, $routeParams.id);
+//		tablas.modcampo('tbl_servicio', 'tag' , $scope.folio.tag, $routeParams.id);
+//		tablas.modcampo('tbl_servicio', 'observacion' , '"'+$scope.folio.observacion+'"', $routeParams.id);
 		
-		tablas.modcampo('tbl_servicio', 'contacto' , $scope.folio.contacto, $routeParams.id);
+//		tablas.modcampo('tbl_servicio', 'contacto' , $scope.folio.contacto, $routeParams.id);
 		//tablas.modcampo('tbl_servicio', 'visado' , $scope.folio.contacto, $routeParams.id);
-		tablas.modcampo('tbl_servicio', 'flag' , '1' , $routeParams.id); //fue updateada
+//		tablas.modcampo('tbl_servicio', 'flag' , '1' , $routeParams.id); //fue updateada
 		
 		var auxkmi = ki.split(';');
 		var auxkmt = kt.split(';');
@@ -528,7 +547,7 @@ angular.module("App")
 				});
 			}
 		}
-		tablas.selecciona('tbl_folio', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', sel);
+		//tablas.selecciona('tbl_folio', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', sel);
 		LxNotificationService.confirm('Guardado', 'Ha guardado la informacion correctamente, puede continuar en la bitacora o salir.', { cancel:'Continuar', ok:'Salir' }, function(answer){
 				if(answer == true){
 					history.back();
@@ -537,7 +556,7 @@ angular.module("App")
 	}		
 })
 
-.controller("CierreController", function($scope, DriverResource, ServiciosResource, ProgramaResource, Folio2Resource, UserResource, CierreResource, $routeParams, $location, $filter, LxNotificationService, tablas, $http){
+.controller("CierreController", function($scope, DriverResource, ServiciosResource, ProgramaResource, Folio2Resource, UserResource, CierreResource, $routeParams, $location, $filter, LxNotificationService, $http){
 	$scope.textToObjectMethod = function(data, callback) //funcion que extrae los id de los usuarios y los pasa a nombres
 		{
 		UserResource.get({id: data}).$promise.then(function(result){
@@ -575,8 +594,8 @@ angular.module("App")
 
 
 	//extraer datos de tablas locales
-	c = function(item){
-		if(item.length > 0){//no vacio
+	/*c = function(item){
+		if(item.length > 0){
 			if( item[0].id_servicio == $routeParams.id){	
 				$scope.fecha = item[0].fecha;
 				$scope.driver2 = item[0].driver;
@@ -653,7 +672,7 @@ angular.module("App")
 				
 			}
 		}
-		else{ //vacio
+		else{ */
 			$scope.backservicio = Folio2Resource.get({id: $routeParams.id}).$promise.then(function(result){
 				$scope.backservicio = result;
 						
@@ -726,14 +745,14 @@ angular.module("App")
 						}
 					}
 				});
-			}
-		}
+	//		}
+	//	}
 		
 		/*
 		 * Extraer desde BDD 
 		 */
-		 cb = function(item){
-			 if(item.length > 0){//no vacio
+		/* cb = function(item){
+			 if(item.length > 0){
 				 if( item[0].id_servicio == $routeParams.id){
 					$scope.folio.peaje = item[0].peaje; 
 					$scope.folio.estacionamiento = item[0].estacionamiento; 
@@ -741,7 +760,7 @@ angular.module("App")
 					$scope.folio.observacion = item[0].observacion; 
 				}
 			}
-			else{ //vacio
+			else{ */
 				z = CierreResource.query(function (response){
 					angular.forEach(response, function (item){			
 						if(($scope.driver2.id_driver == item.driver) && ($scope.fecha == item.fecha)){
@@ -759,10 +778,11 @@ angular.module("App")
 						}
 					});
 				});
-			}
-		}
-		tablas.selecciona('tbl_cierre', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', cb);			
-		tablas.selecciona('tbl_folio2', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', c);
+			//}
+		//}
+		
+		//tablas.selecciona('tbl_cierre', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', cb);			
+		//tablas.selecciona('tbl_folio2', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', c);
 
 		$scope.title = "BITACORA DE CIERRES";
 
@@ -773,8 +793,8 @@ angular.module("App")
 			
 			$scope.rutatab2= "/user/add/"+$scope.iddriver+"/"+$routeParams.id;
 			
-			tablas.insertar('tbl_folio2', 'id_servicio, hr_inicio, km_inicio, lugar_salida, hr_termino, km_termino, pasajero, calidad, desc_calidad, coord_x, coord_y, tiempo_real, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"","","", ""');
-			tablas.insertar('tbl_cierre', 'id_servicio, peaje, estacionamiento, tag, km_add, observacion, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"","" ,""');
+			//tablas.insertar('tbl_folio2', 'id_servicio, hr_inicio, km_inicio, lugar_salida, hr_termino, km_termino, pasajero, calidad, desc_calidad, coord_x, coord_y, tiempo_real, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"","","", ""');
+			//tablas.insertar('tbl_cierre', 'id_servicio, peaje, estacionamiento, tag, km_add, observacion, flag', '"'+$routeParams.id+'","" ,"" ,"" ,"","" ,""');
 			//la insercion de los kms va a ser backend
 			
 			$scope.idusers=[];
@@ -883,7 +903,7 @@ angular.module("App")
 			}
 			 
 		}
-
+/*
 		tablas.modcampo('tbl_folio2', 'hr_inicio' , '"'+hi+'"', $routeParams.id);
 		tablas.modcampo('tbl_folio2', 'hr_termino' , '"'+ht+'"', $routeParams.id);
 		tablas.modcampo('tbl_folio2', 'km_inicio' , '"'+ki+'"', $routeParams.id);
@@ -916,7 +936,7 @@ angular.module("App")
 		$.post('http://www.city-ex.cl/chv/site/editcierre', {
 			driver: $scope.iddriver, fecha: $scope.fecha, km_inicio: ki, km_termino: kt, lugar: lle, contacto: pas, peaje: $scope.folio.peaje, estacionamiento: $scope.folio.estacionamiento, tag: $scope.folio.tag, observaciones:$scope.folio.observacion, km_add: $scope.folio.kms_add
 		});
-		
+		*/
 		sel = function(item){
 			if( item[0].id_servicio == $routeParams.id){
 				$scope.cx  = item[0].coord_x;
@@ -929,7 +949,7 @@ angular.module("App")
 			}
 		}
 		
-		tablas.selecciona('tbl_folio2', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', sel);
+		//tablas.selecciona('tbl_folio2', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', sel);
 		LxNotificationService.confirm('Guardado', 'Ha guardado la informacion correctamente, puede continuar en la bitacora o salir.', { cancel:'Continuar', ok:'Salir' }, function(answer){
 			if(answer == true){
 				history.back();
@@ -955,7 +975,7 @@ angular.module("App")
 		
 })
 
-.controller("UseraddController", function($scope, $resource, $routeParams, ProgramaResource, $resource, $location, $filter, LxNotificationService, tablas, localtime){
+.controller("UseraddController", function($scope, $resource, $routeParams, ProgramaResource, $resource, $location, $filter, LxNotificationService, localtime){
 	
 	$scope.centrocostos = ProgramaResource.query();
 	$scope.title= "Agregar Usuario al cierre";

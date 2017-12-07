@@ -2,8 +2,8 @@
 	<div class="card top-space">
 		<div class="p+ pt0">
 			<h1>{{title}}</h1>
+			<index type="hidden" ng-model='id_driver'>
 			<div flex-container ="row">
-				
 			<lx-select  placeholder="Seleccione nombre conductor" choices="drivers" ng-model="driver.driver" id={{cont}} min-length="5" ng-change= "update()" allow-clear="true">
             <lx-select-selected>
                 {{ $selected.Nombre }}
@@ -15,6 +15,14 @@
         </lx-select>
 				</div>
 			
+			<!--div class="p+">
+			
+		<input type="radio" ng-value="conductor" name="boolean" ng-change="logIt()" ng-model="nivel" /> Conductor
+		<input type="radio" ng-value="administrador" name="boolean" ng-change="logIt()" ng-model="nivel" /> Administrador 
+
+
+		</div-->
+			
 			<div flex-container ="row">
 				<div flex-item>
 					<lx-text-field label="Contraseña">
@@ -23,6 +31,7 @@
 					</div>
 				</div>
 			
+
 			<div class="card__actions">
 				<button type="submit" class="btn btn--blue btn--l btn--raised">
 					Ingresar
@@ -32,4 +41,3 @@
 		</div>
 	</div>
 </form>
- 
