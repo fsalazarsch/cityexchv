@@ -536,17 +536,17 @@ angular.module("App")
 			LxNotificationService.error(data);
 		});
 		
-		sel = function(item){
-			if( item[0].id_servicio == $routeParams.id){
-				$scope.cx  = item[0].coord_x;
-				$scope.cy = item[0].coord_y;
-				$scope.tr = item[0].tiempo_real;
+		//sel = function(item){
+		//	if( item[0].id_servicio == $routeParams.id){
+		//		$scope.cx  = item[0].coord_x;
+		//		$scope.cy = item[0].coord_y;
+		//		$scope.tr = item[0].tiempo_real;
 			
-				$.post('http://www.city-ex.cl/chv/site/editfolio', {
-					id: $routeParams.id, tiempo_real: $scope.tr, km_inicio: ki, km_termino: kt, hr_termino: ht, hr_inicio: hi, lugar_llegada: lle , lugar_salida: ls, coord_x: $scope.cx, coord_y: $scope.cy, calidad: $scope.folio.calidad, desc_calidad: $scope.folio.desc_calidad
-				});
-			}
-		}
+		$.post('http://www.city-ex.cl/chv/site/editfolio', {
+		id: $routeParams.id, tiempo_real: $scope.tr, km_inicio: ki, km_termino: kt, hr_termino: ht, hr_inicio: hi, lugar_llegada: lle , lugar_salida: ls, coord_x: $scope.cx, coord_y: $scope.cy, calidad: $scope.folio.calidad, desc_calidad: $scope.folio.desc_calidad
+			});
+		//	}
+		//}
 		//tablas.selecciona('tbl_folio', '*', 'id_servicio = "'+$routeParams.id+'" and flag = 1', sel);
 		LxNotificationService.confirm('Guardado', 'Ha guardado la informacion correctamente, puede continuar en la bitacora o salir.', { cancel:'Continuar', ok:'Salir' }, function(answer){
 				if(answer == true){
