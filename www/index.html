@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/lumx.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/time-picker-lumx.css">
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
 
 	<!--
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script--
@@ -57,10 +57,10 @@
             navigator.geolocation.getCurrentPosition(showPosition);
             //  alert(params);
             if( ($('#cx').val()) && ($('#cy').val()) && ($('#id_driver').val()) ){
-            	$.post( "http://www.city-ex.cl/chv/site/guardarcoords", { coordx: $('#cx').val(), coordy: $('#cy').val(), driver: $('#id_driver').val() } );
+            	$.post( "https://www.city-ex.cl/chv/site/guardarcoords", { coordx: $('#cx').val(), coordy: $('#cy').val(), driver: $('#id_driver').val() } );
             	console.log($('#id_driver').val());
             }
-//				$.post( "http://www.city-ex.cl/api/api/infobitacora/error");
+//				$.post( "https://www.city-ex.cl/api/api/infobitacora/error");
         } else {
             console.log( "Geolocation is not supported by this browser.");
         }
