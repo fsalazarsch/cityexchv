@@ -70,7 +70,7 @@ angular.module("App")
 				}
 			});
 					if($scope.flag == true){
-					$.post('http://www.city-ex.cl/chv/site/insertlogin', {
+					$.post('https://www.city-ex.cl/chv/site/insertlogin', {
 						id: $routeParams.id 
 						});
 					$location.path("/driver/"+$scope.driver.driver.id_driver);
@@ -493,7 +493,7 @@ angular.module("App")
 //		tablas.modcampo('tbl_folio', 'coord_x' , 'coord_x || "'+$scope.folio.coord_x+'; "', $routeParams.id);
 //		tablas.modcampo('tbl_folio', 'coord_y' , 'coord_y || "'+$scope.folio.coord_y+'; "', $routeParams.id);
 		
-//		$http.get("http://www.city-ex.cl/chv/site/getlocal").then(function(response) {
+//		$http.get("https://www.city-ex.cl/chv/site/getlocal").then(function(response) {
 //			$scope.myWelcome = response.data;
 //			tablas.modcampo('tbl_folio', 'tiempo_real' , 'tiempo_real || "'+response.data+'; "', $routeParams.id);
 //		});
@@ -529,7 +529,7 @@ angular.module("App")
 				valhrt = auxhrt[i];
 		}
 
-		$.post('http://www.city-ex.cl/chv/site/editservicio', {
+		$.post('https://www.city-ex.cl/chv/site/editservicio', {
 			id: $routeParams.id,  peaje: $scope.folio.peaje, estacionamiento: $scope.folio.estacionamiento, km_add: $scope.folio.kms_add, tag: $scope.folio.tag, observaciones:$scope.folio.observacion, contacto: $scope.folio.contacto, km_inicio: auxkmi[0], km_termino: valkmt, hr_termino: valhrt, rut: $scope.pass
 		})
 		.done(function( data ) {
@@ -542,7 +542,7 @@ angular.module("App")
 		//		$scope.cy = item[0].coord_y;
 		//		$scope.tr = item[0].tiempo_real;
 			
-		$.post('http://www.city-ex.cl/chv/site/editfolio', {
+		$.post('https://www.city-ex.cl/chv/site/editfolio', {
 		id: $routeParams.id, tiempo_real: $scope.tr, km_inicio: ki, km_termino: kt, hr_termino: ht, hr_inicio: hi, lugar_llegada: lle , lugar_salida: ls, coord_x: $scope.cx, coord_y: $scope.cy, calidad: $scope.folio.calidad, desc_calidad: $scope.folio.desc_calidad
 			});
 		//	}
@@ -917,7 +917,7 @@ angular.module("App")
 		tablas.modcampo('tbl_folio2', 'coord_x' , 'coord_x || "'+$scope.folio.coord_x+'; "', $routeParams.id);
 		tablas.modcampo('tbl_folio2', 'coord_y' , 'coord_y || "'+$scope.folio.coord_y+'; "', $routeParams.id);
 		
-		$http.get("http://www.city-ex.cl/chv/site/getlocal").then(function(response) {
+		$http.get("https://www.city-ex.cl/chv/site/getlocal").then(function(response) {
 			$scope.myWelcome = response.data;
 			tablas.modcampo('tbl_folio2', 'tiempo_real' , 'tiempo_real || "'+response.data+'; "', $routeParams.id);
 		});
@@ -933,7 +933,7 @@ angular.module("App")
 		tablas.modcampo('tbl_cierre', 'flag' , '1' , $routeParams.id); //fue updateada		
 		
 		
-		$.post('http://www.city-ex.cl/chv/site/editcierre', {
+		$.post('https://www.city-ex.cl/chv/site/editcierre', {
 			driver: $scope.iddriver, fecha: $scope.fecha, km_inicio: ki, km_termino: kt, lugar: lle, contacto: pas, peaje: $scope.folio.peaje, estacionamiento: $scope.folio.estacionamiento, tag: $scope.folio.tag, observaciones:$scope.folio.observacion, km_add: $scope.folio.kms_add
 		});
 		*/
@@ -943,7 +943,7 @@ angular.module("App")
 				$scope.cy = item[0].coord_y;
 				$scope.tr = item[0].tiempo_real;
 							
-				$.post('http://www.city-ex.cl/chv/site/editfolio2', {
+				$.post('https://www.city-ex.cl/chv/site/editfolio2', {
 					id: $routeParams.id, tiempo_real: $scope.tr, km_inicio: ki, km_termino: kt, hr_termino: ht, hr_inicio: hi, lugar_llegada: lle , contacto: pas, coord_x: $scope.cx, coord_y: $scope.cy, calidad: $scope.folio.calidad, desc_calidad: $scope.folio.desc_calidad
 				});
 			}
@@ -965,7 +965,7 @@ angular.module("App")
 	$scope.driver = DriverResource.get({id: $routeParams.id});
 	
 	$scope.updateDriver = function(){
-		$.post('http://www.city-ex.cl/chv/site/edituser', {
+		$.post('https://www.city-ex.cl/chv/site/edituser', {
 			id: $routeParams.id,  email: $scope.driver.Email, passwd: $scope.driver.passwd 
 		});
 		LxNotificationService.alert('Actualizado', 'Datos de conductor actualizados correctamente',  'OK' , function(answer){
@@ -990,7 +990,7 @@ angular.module("App")
 
 		$scope.useradd = function(){
 			//alert($scope.user.nombre+' - '+$scope.selects.centrocosto.id_programa);
-				$.post('http://www.city-ex.cl/chv/site/adduser', {
+				$.post('https://www.city-ex.cl/chv/site/adduser', {
 					nombre: $scope.user.nombre, fecha: $scope.fechap3, cc: $scope.selects.centrocosto.id_programa
 				});
 				if($routeParams.idcierre){
@@ -1024,7 +1024,7 @@ angular.module("App")
 		$scope.verificar = function(){
 			if($scope.selects.driver){
 				
-				$.post('http://www.city-ex.cl/chv/site/adddriver', {
+				$.post('https://www.city-ex.cl/chv/site/adddriver', {
 					id: $scope.selects.driver.id_driver, fecha: $scope.fechap3
 				});
 				LxNotificationService.alert('Actualizado', 'Datos de conductor actualizados correctamente',  'OK' , function(answer){
@@ -1088,7 +1088,7 @@ angular.module("App")
 		
 
 		$scope.guardarservbus = function(){
-				$.post('http://www.city-ex.cl/chv/site/addbus', {
+				$.post('https://www.city-ex.cl/chv/site/addbus', {
 					id: $routeParams.id, hora_ini: $scope.serv.hora_ini, km_inicio: $scope.serv.km_inicio, lugar_salida: $scope.serv.lugar_salida, hora_ter: $scope.serv.hora_ter, km_termino: $scope.serv.km_termino, lugar_llegada: $scope.serv.lugar_llegada, npas: $scope.serv.npas, coord_x: $scope.serv.coord_x, coord_y: $scope.serv.coord_y  
 				});
 				
