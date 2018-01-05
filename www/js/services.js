@@ -1,86 +1,86 @@
 angular.module("App")
 .factory('DriverResource', function($resource){
-    return $resource('http://www.city-ex.cl/api/api/drivers', {}, {
+    return $resource('https://www.city-ex.cl/api/api/drivers', {}, {
         query: {method: 'GET',  isArray: true },
-        get: { method: 'GET',  url: 'http://www.city-ex.cl/api/api/drivers/:id', id: "@id"},
-        //save: {method: 'POST', url: 'http://www.city-ex.cl/rapi2/api/drivers'},
-        //update: { method: 'PUT', url: 'http://www.city-ex.cl/rapi2/api/drivers/:id', id: "@id"}
+        get: { method: 'GET',  url: 'https://www.city-ex.cl/api/api/drivers/:id', id: "@id"},
+        //save: {method: 'POST', url: 'https://www.city-ex.cl/rapi2/api/drivers'},
+        //update: { method: 'PUT', url: 'https://www.city-ex.cl/rapi2/api/drivers/:id', id: "@id"}
     });
 })
 .factory('PatenteResource', function($resource){
-    return $resource('http://www.city-ex.cl/rapi2/api/patentes', {}, {
+    return $resource('https://www.city-ex.cl/rapi2/api/patentes', {}, {
         query: {method: 'GET',  isArray: true },
-        get: { method: 'GET',  url: 'http://www.city-ex.cl/rapi2/api/patentes/:id', id: "@id"}
+        get: { method: 'GET',  url: 'https://www.city-ex.cl/rapi2/api/patentes/:id', id: "@id"}
     });
 })
 .factory('ProgramaResource', function($resource){
-    return $resource('http://www.city-ex.cl/rapi2/api/programas', {}, {
+    return $resource('https://www.city-ex.cl/rapi2/api/programas', {}, {
         query: {method: 'GET',  isArray: true },
-        get: { method: 'GET',  url: 'http://www.city-ex.cl/rapi2/api/programas/:id', id: "@id"},
-        //save: {method: 'POST', url: 'http://www.city-ex.cl/rapi2/api/programas'},
-        //update: { method: 'PUT', url: 'http://www.city-ex.cl/rapi2/api/programas/:id', id: "@id"}
+        get: { method: 'GET',  url: 'https://www.city-ex.cl/rapi2/api/programas/:id', id: "@id"},
+        //save: {method: 'POST', url: 'https://www.city-ex.cl/rapi2/api/programas'},
+        //update: { method: 'PUT', url: 'https://www.city-ex.cl/rapi2/api/programas/:id', id: "@id"}
     });
 })
 .factory('ServiciosResource', function($resource){
-    return $resource('http://www.city-ex.cl/rapi2/api/servicios', {}, {
+    return $resource('https://www.city-ex.cl/rapi2/api/servicios', {}, {
         query: {method: 'GET',  isArray: true },
-        get: { method: 'GET',  url: 'http://www.city-ex.cl/rapi2/api/servicios/:id', id: "@id"},
-        //save: {method: 'POST', url: 'http://www.city-ex.cl/rapi2/api/servicios'},
-        //update: { method: 'PUT', url: 'http://www.city-ex.cl/rapi2/api/servicios/:id', id: "@id"}
+        get: { method: 'GET',  url: 'https://www.city-ex.cl/rapi2/api/servicios/:id', id: "@id"},
+        //save: {method: 'POST', url: 'https://www.city-ex.cl/rapi2/api/servicios'},
+        //update: { method: 'PUT', url: 'https://www.city-ex.cl/rapi2/api/servicios/:id', id: "@id"}
     });
 })
 .factory('ServiciostrResource', function($resource){
-    return $resource('http://www.city-ex.cl/rapi2/api/serviciostr', {}, {
+    return $resource('https://www.city-ex.cl/rapi2/api/serviciostr', {}, {
         query: {method: 'GET',  isArray: true },
-        get: { method: 'GET',  url: 'http://www.city-ex.cl/rapi2/api/serviciostr/:id', id: "@id"},
-        //save: {method: 'POST', url: 'http://www.city-ex.cl/rapi2/api/serviciostr'},
-        //update: { method: 'PUT', url: 'http://www.city-ex.cl/rapi2/api/serviciostr/:id', id: "@id"}
+        get: { method: 'GET',  url: 'https://www.city-ex.cl/rapi2/api/serviciostr/:id', id: "@id"},
+        //save: {method: 'POST', url: 'https://www.city-ex.cl/rapi2/api/serviciostr'},
+        //update: { method: 'PUT', url: 'https://www.city-ex.cl/rapi2/api/serviciostr/:id', id: "@id"}
     });
 })
 .factory('CierreResource', function($resource){
-    return $resource('http://www.city-ex.cl/rapi2/api/cierres', {}, {
+    return $resource('https://www.city-ex.cl/rapi2/api/cierres', {}, {
         query: {method: 'GET',  isArray: true },
-        get: { method: 'GET',  url: 'http://www.city-ex.cl/rapi2/api/cierres/:id', id: "@id"},
-        //save: {method: 'POST', url: 'http://www.city-ex.cl/rapi2/api/cierres'},
-        //update: { method: 'PUT', url: 'http://www.city-ex.cl/rapi2/api/cierres/:id', id: "@id"}
+        get: { method: 'GET',  url: 'https://www.city-ex.cl/rapi2/api/cierres/:id', id: "@id"},
+        //save: {method: 'POST', url: 'https://www.city-ex.cl/rapi2/api/cierres'},
+        //update: { method: 'PUT', url: 'https://www.city-ex.cl/rapi2/api/cierres/:id', id: "@id"}
     });
 })
 .factory('FolioResource', function($resource){
-    return $resource('http://www.city-ex.cl/rapi2/api/folios', {}, {
+    return $resource('https://www.city-ex.cl/rapi2/api/folios', {}, {
         query: {method: 'GET',  isArray: true },
-        get: { method: 'GET',  url: 'http://www.city-ex.cl/rapi2/api/folios/:id', id: "@id"},
-        //save: {method: 'POST', url: 'http://www.city-ex.cl/rapi2/api/folios'},
-        //update: { method: 'PUT', url: 'http://www.city-ex.cl/rapi2/api/folios/:id', id: "@id"}
+        get: { method: 'GET',  url: 'https://www.city-ex.cl/rapi2/api/folios/:id', id: "@id"},
+        //save: {method: 'POST', url: 'https://www.city-ex.cl/rapi2/api/folios'},
+        //update: { method: 'PUT', url: 'https://www.city-ex.cl/rapi2/api/folios/:id', id: "@id"}
     });
 })
 .factory('Folio2Resource', function($resource){
-    return $resource('http://www.city-ex.cl/rapi2/api/folios2', {}, {
+    return $resource('https://www.city-ex.cl/rapi2/api/folios2', {}, {
         query: {method: 'GET',  isArray: true },
-        get: { method: 'GET',  url: 'http://www.city-ex.cl/rapi2/api/folios2/:id', id: "@id"},
-        //save: {method: 'POST', url: 'http://www.city-ex.cl/rapi2/api/folios2'},
-        //update: { method: 'PUT', url: 'http://www.city-ex.cl/rapi2/api/folios2/:id', id: "@id"}
+        get: { method: 'GET',  url: 'https://www.city-ex.cl/rapi2/api/folios2/:id', id: "@id"},
+        //save: {method: 'POST', url: 'https://www.city-ex.cl/rapi2/api/folios2'},
+        //update: { method: 'PUT', url: 'https://www.city-ex.cl/rapi2/api/folios2/:id', id: "@id"}
     });
 })
 .factory('UserResource', function($resource){
-    return $resource('http://www.city-ex.cl/rapi2/api/users', {}, {
+    return $resource('https://www.city-ex.cl/rapi2/api/users', {}, {
         query: {method: 'GET',  isArray: true },
-        get: { method: 'GET',  url: 'http://www.city-ex.cl/rapi2/api/users/:id', id: "@id"},
-        //save: {method: 'POST', url: 'http://www.city-ex.cl/rapi2/api/users'},
-        //update: { method: 'PUT', url: 'http://www.city-ex.cl/rapi2/api/users/:id', id: "@id"}
+        get: { method: 'GET',  url: 'https://www.city-ex.cl/rapi2/api/users/:id', id: "@id"},
+        //save: {method: 'POST', url: 'https://www.city-ex.cl/rapi2/api/users'},
+        //update: { method: 'PUT', url: 'https://www.city-ex.cl/rapi2/api/users/:id', id: "@id"}
     });
 })
 .factory('TempcierreResource', function($resource){
-    return $resource('http://www.city-ex.cl/rapi2/api/tempcierres', {}, {
+    return $resource('https://www.city-ex.cl/rapi2/api/tempcierres', {}, {
         query: {method: 'GET',  isArray: true },
-        get: { method: 'GET',  url: 'http://www.city-ex.cl/rapi2/api/tempcierres/:id', id: "@id"}
+        get: { method: 'GET',  url: 'https://www.city-ex.cl/rapi2/api/tempcierres/:id', id: "@id"}
     });
 })
 .factory('ServiciobusResource', function($resource){
-    return $resource('http://www.city-ex.cl/rapi2/api/serviciobus', {}, {
+    return $resource('https://www.city-ex.cl/rapi2/api/serviciobus', {}, {
         query: {method: 'GET',  isArray: true },
-        get: { method: 'GET',  url: 'http://www.city-ex.cl/rapi2/api/serviciobus/:id', id: "@id"},
-        //save: {method: 'POST', url: 'http://www.city-ex.cl/rapi2/api/programas'},
-        //update: { method: 'PUT', url: 'http://www.city-ex.cl/rapi2/api/programas/:id', id: "@id"}
+        get: { method: 'GET',  url: 'https://www.city-ex.cl/rapi2/api/serviciobus/:id', id: "@id"},
+        //save: {method: 'POST', url: 'https://www.city-ex.cl/rapi2/api/programas'},
+        //update: { method: 'PUT', url: 'https://www.city-ex.cl/rapi2/api/programas/:id', id: "@id"}
     });
 })
 
