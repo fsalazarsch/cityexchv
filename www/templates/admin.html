@@ -1,0 +1,49 @@
+
+<center>
+<form>
+	   <div id="datos" style="display:none"></div>
+			<div class="card top-space" style="width: 90%;">
+			<h1>{{title}}</h1>
+			<div flex-container="row">
+
+				<div flex-container="column"  style="width: 100%;">
+					<div flex-item>
+                        <div class="card top-space">
+                        <lx-date-picker class="lx-date-picker__current-date" model="fechap" label="Seleccione fecha" locale="es" fixed-label="true" icon="calendar" ></lx-date-picker>
+                        <lx-date-picker class="lx-date-picker__current-date" model="fechap2" label="Seleccione fecha" locale="es" fixed-label="true" icon="calendar" ></lx-date-picker>
+                        </div>
+						<div class="card__actions">
+							<button ng-click="buscar()" type="button" class="btn btn--blue btn--l btn--raised">
+								Buscar
+							</button>
+
+						</div>
+				</div>
+			</div>
+		</div>
+</form>
+</div>
+
+<div class="card top-space" style="width: 90%;">
+    <ul class="list mt++">
+    <li class="list-row list-row--has-separator" ng-repeat="serv in servicios">
+        <div class="list-row__content">
+            <span ng-click="aparecer(serv.id_servicio)">{{serv.id_servicio}} --> {{serv.desc_programa}}   {{serv.fecha}} {{serv.hora_inicio}} - {{serv.hora_termino}}
+            </span>
+        </div>
+    </li>
+    </ul>
+</div>
+
+<iframe width="900px" width="600"
+  height="450"
+  frameborder="0" style="border:0">
+<!--div id="map"></div-->
+
+</iframe>
+</center>
+
+
+    <!--script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOYmm1U7cbpX3uZ1aN22i6bXUb-1-0d-g&callback=initMap">
+    </script-->

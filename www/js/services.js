@@ -7,6 +7,13 @@ angular.module("App")
         //update: { method: 'PUT', url: 'https://www.city-ex.cl/rapi2/api/drivers/:id', id: "@id"}
     });
 })
+.factory('AdminResource', function($resource){
+    return $resource('https://www.city-ex.cl/rapi2/api/admins', {}, {
+        query: {method: 'GET',  isArray: true },
+        query2: {method: 'GET',  isArray: true, url: 'https://www.city-ex.cl/rapi2/api/admins/:fecha/:fecha2/:ccs', fecha: "@fecha", fecha2: "@fecha2", ccs: "@ccs" },
+    });
+})
+
 .factory('PatenteResource', function($resource){
     return $resource('https://www.city-ex.cl/rapi2/api/patentes', {}, {
         query: {method: 'GET',  isArray: true },
@@ -83,7 +90,14 @@ angular.module("App")
         //update: { method: 'PUT', url: 'https://www.city-ex.cl/rapi2/api/programas/:id', id: "@id"}
     });
 })
-
+.factory('Resource', function($resource){
+    return $resource('https://www.city-ex.cl/rapi2/api/serviciobus', {}, {
+        query: {method: 'GET',  isArray: true },
+        get: { method: 'GET',  url: 'https://www.city-ex.cl/rapi2/api/serviciobus/:id', id: "@id"},
+        //save: {method: 'POST', url: 'https://www.city-ex.cl/rapi2/api/programas'},
+        //update: { method: 'PUT', url: 'https://www.city-ex.cl/rapi2/api/programas/:id', id: "@id"}
+    });
+})
 
 .factory("localtime", function($http) {
   return $http.get('https://www.city-ex.cl/chv/site/getlocal');

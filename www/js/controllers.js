@@ -1,9 +1,9 @@
 angular.module("App")
 
-.controller("MainController", function($scope, $resource, $routeParams, DriverResource, $resource, $location, LxNotificationService, tablas, localtime){
+.controller("MainController", function($scope, $resource, $routeParams, DriverResource, AdminResource, $resource, $location, LxNotificationService, tablas, localtime){
 	$scope.driver = { driver: undefined};
-	$scope.opc = undefined;
-
+	$scope.admin = { admin: undefined};
+	
 	
 	//tablas.crearTabla('tbl_folio', 'id_servicio unique,  hr_inicio text, km_inicio text, lugar_salida text, hr_termino text, km_termino text, lugar_llegada text, calidad number, desc_calidad text, coord_x text, coord_y text, tiempo_real text, flag number');
 	//tablas.crearTabla('tbl_folio2', 'id_servicio unique, hr_inicio text, km_inicio text, lugar_salida text, hr_termino text, km_termino text, pasajero text, calidad number, desc_calidad text, coord_x text, coord_y text, tiempo_real text, flag number');
@@ -25,12 +25,75 @@ angular.module("App")
 				//alert('El id es '+item[0].id_driver);
 				}}}
 
-	tablas.selecciona('tbl_login', 'id_driver', '1', cb);
+	
 	
 
 	$scope.drivers = DriverResource.query();
+	$scope.admins = AdminResource.query();
+
+
 	$scope.title= "Login";
-	
+
+	$scope.verificar2 = function(){
+		$scope.flag = false;
+		$scope.admins=[];
+		
+		y = AdminResource.query(function (response){
+			angular.forEach(response, function (item){
+					$scope.admins.push(item);
+			});
+		});
+
+		$scope.update2 = function(){
+			$scope.admin.admin= parseInt($scope.admins[0].id);
+			//alert($scope.admin.admin);
+
+		}
+		
+		
+			//console.log($scope.admin.admin.pwd);
+
+			
+			$scope.passwordencr =  $.post('https://www.city-ex.cl/chv/site/encriptar', {
+            	user: $scope.admin.admin.username, pass: $scope.admin.passwd
+                }).success(function (data){
+                $scope.flag = data;
+                if($scope.flag != 0){
+                	LxNotificationService.success('Ingresando...');
+                    $location.path("/admins/"+$scope.flag);
+                    }
+                    else
+                    LxNotificationService.error('Usuario o Password incorrectos');
+                    });
+            
+            
+
+		/*x = AdminResource.query(function (response) 
+		{
+		    angular.forEach(response, function (item) 
+		    {
+		    	
+				if($.md5(item.pwd) == $scope.admin.admin.pwd){
+						
+					if(item.id == $scope.admin.admin.id){
+					if($scope.flag == false)
+						alert(item);
+						$scope.flag = true;
+						}
+					if(item.id != $scope.admin.admin.id){
+						if($scope.flag == true)
+						$scope.flag = true;
+						}
+				}
+			});
+					if($scope.flag == true){
+					$location.path("/admins/"+$scope.admin.admin.id);
+					}
+					else
+					LxNotificationService.error('Admin o Password incorrectos');
+		});*/
+
+	}	
 
 	$scope.verificar = function(){
 		$scope.flag = false;
@@ -73,6 +136,7 @@ angular.module("App")
 					$.post('https://www.city-ex.cl/chv/site/insertlogin', {
 						id: $routeParams.id 
 						});
+					tablas.selecciona('tbl_login', 'id_driver', '1', cb);
 					$location.path("/driver/"+$scope.driver.driver.id_driver);
 					}
 					else
@@ -1103,4 +1167,49 @@ angular.module("App")
 		};
 
 	
-});
+})
+.controller("AdminController", function($scope, UserResource, AdminResource, $routeParams, $location, $filter){
+	//hecho el seguimiento
+	
+	
+	$scope.user = UserResource.get({id: $routeParams.id});
+	$scope.id = $routeParams.id;
+	$scope.title = "Filtros";
+	
+	if (($scope.user.programa == undefined) || ($scope.user.programa == "---"))
+		$scope.ccs = 0;
+	else
+		$scope.ccs = $scope.user.programa;
+
+	$scope.fechap = $filter('date')(new Date(), 'yyyy-MM-dd');
+	$scope.$watch('fechap', function() {
+		$scope.fechap = $filter('date')($scope.fechap, 'yyyy-MM-dd');
+	});
+
+	$scope.fechap2 = $filter('date')(new Date(), 'yyyy-MM-dd');
+	$scope.$watch('fechap2', function() {
+		$scope.fechap2 = $filter('date')($scope.fechap2, 'yyyy-MM-dd');
+	});
+
+	if($scope.user.accessLevel <= 55)
+		$scope.lim = 1;
+	else
+		$scope.lim = 0;
+
+	$scope.servs = AdminResource.query2({fecha: $scope.fechap, fecha2: $scope.fechap2, ccs: $scope.ccs}).$promise.then(function(result){
+		$scope.servicios = result;
+	});
+
+	$scope.buscar = function(){
+	$scope.servs = AdminResource.query2({fecha: $scope.fechap, fecha2: $scope.fechap2, ccs: $scope.ccs}).$promise.then(function(result){
+		$scope.servicios = result;
+	});
+	}
+
+
+	$scope.aparecer = function(id){
+		  $('iframe').attr('src', 'https://www.city-ex.cl/chv/site/tablet2?hash=8b6601b10c1ef1def8c19fe4583ae925&id='+id);
+		}
+
+	//$interval(increaseCounter, 10000* parseInt(mins[0])); 
+})

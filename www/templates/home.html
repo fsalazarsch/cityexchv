@@ -1,7 +1,9 @@
+<lx-tabs>
+<lx-tab heading="Conductores">
 <form ng-submit="verificar()">
 	<div class="card top-space">
 		<div class="p+ pt0">
-			<h1>{{title}}</h1>
+			<h1>{{title}} Conductores</h1>
 			<input type="hidden" id='id_driver'>
 			<div flex-container ="row">
 			<lx-select  placeholder="Seleccione nombre conductor" choices="drivers" ng-model="driver.driver" id={{cont}} min-length="5" ng-change= "update()" allow-clear="true">
@@ -14,14 +16,7 @@
             </lx-select-choices>
         </lx-select>
 				</div>
-			
-			<!--div class="p+">
-			
-		<input type="radio" ng-value="conductor" name="boolean" ng-change="logIt()" ng-model="nivel" /> Conductor
-		<input type="radio" ng-value="administrador" name="boolean" ng-change="logIt()" ng-model="nivel" /> Administrador 
-
-
-		</div-->
+		
 			
 			<div flex-container ="row">
 				<div flex-item>
@@ -41,3 +36,42 @@
 		</div>
 	</div>
 </form>
+</lx-tab>
+	<lx-tab heading="Administradores">
+<form ng-submit="verificar2()">
+	<div class="card top-space">
+		<div class="p+ pt0">
+			<h1>{{title}} Administradores</h1>
+			<input type="hidden" id='id_driver'>
+			<div flex-container ="row">
+			<lx-select  placeholder="Seleccione nombre administrador" choices="admins" ng-model="admin.admin" id={{cont}} min-length="5" ng-change= "update2()" allow-clear="true">
+            <lx-select-selected>
+                {{ $selected.username }}
+            </lx-select-selected>
+
+            <lx-select-choices>
+                {{ $choice.username }}
+            </lx-select-choices>
+        </lx-select>
+				</div>
+		
+			
+			<div flex-container ="row">
+				<div flex-item>
+					<lx-text-field label="Contraseña">
+						<input type ="password"  ng-model="admin.passwd">
+						</lx-text-field>
+					</div>
+				</div>
+			
+
+			<div class="card__actions">
+				<button type="submit" class="btn btn--blue btn--l btn--raised">
+					Ingresar
+					</button>
+				</div>
+			
+		</div>
+	</div>
+</form>
+</lx-tab>

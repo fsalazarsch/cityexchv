@@ -28,6 +28,10 @@ angular.module("App",["lumx","ngRoute","ngResource"])
 				controller: 'DriverController',
 				templateUrl: 'templates/driver.html'
 				})
+			.when('/admins/:id', {
+				controller: 'AdminController',
+				templateUrl: 'templates/admin.html'
+				})
 			.when('/driver/edit/:id', {
 				controller: 'DriverpstController',
 				templateUrl: 'templates/driver_form.html'
