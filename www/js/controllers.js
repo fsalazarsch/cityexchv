@@ -15,16 +15,22 @@ angular.module("App")
 	//	$scope.cambioresource = function() {
 	//	console.log($scope.item.code, $scope.item.name)
 	//}
+	//alert( "nombredeusuario = " + localStorage.getItem("id_driver"));
 
-	
+	//console.log(tablas.selecciona('tbl_login', 'id_driver','1'));
+
 	cb = function(item){
+				
 			 if(item.length > 0){//no vacio
 				 if( item[0].id_driver){
 				 $scope.id_driver = item[0].id_driver;
+				 alert('/driver/'+item[0].id_driver);
 				 $location.path('/driver/'+item[0].id_driver);
-				//alert('El id es '+item[0].id_driver);
 				}}}
 
+	if( localStorage.getItem("id_driver") != undefined ){
+		$location.path('/driver/'+localStorage.getItem("id_driver"));
+	}
 	
 	
 
@@ -150,6 +156,8 @@ angular.module("App")
 .controller("DriverController", function($scope, ServiciobusResource, DriverResource, ServiciostrResource, PatenteResource, ProgramaResource, Folio2Resource, $routeParams, $location, $filter, TempcierreResource, tablas){
 	//hecho el seguimiento
 	tablas.crearTabla('tbl_login', 'id_driver unique');
+	localStorage.setItem("id_driver",  $routeParams.id);
+	
 	//tablas.crearTabla('tbl_login', 'id_user unique');	
 	tablas.insertar('tbl_login', 'id_driver', $routeParams.id);
 	

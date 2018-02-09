@@ -125,7 +125,7 @@ angular.module("App")
                     for(var j=0; j<results.rows.length; j++){
                         resultados.push(results.rows.item(j));
                     }
-                    cb(resultados);
+                    return resultados;
                 });
             });
         },
