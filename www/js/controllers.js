@@ -1168,7 +1168,7 @@ angular.module("App")
 
 	
 })
-.controller("AdminController", function($scope, UserResource, AdminResource, $routeParams, $location, $filter){
+.controller("AdminController", function($scope, UserResource, AdminResource, $routeParams, $location, $filter, LxNotificationService){
 	//hecho el seguimiento
 	
 	
@@ -1208,6 +1208,7 @@ angular.module("App")
 
 
 	$scope.aparecer = function(id){
+		  	LxNotificationService.confirm('Generado', 'Se ha generado el mapa en la parte inferior de la aplicación', { ok:'Entendido' }, function(answer){});
 		  $('iframe').attr('src', 'https://www.city-ex.cl/chv/site/tablet2?hash=8b6601b10c1ef1def8c19fe4583ae925&id='+id);
 		}
 
